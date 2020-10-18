@@ -21,14 +21,15 @@
 
     <main class="editorWidget">
 
-        <textarea class="editorAndTerminal" id="editor"></textarea>
-        <textarea class="editorAndTerminal" id="terminal"></textarea>
-
-
+        <textarea class="editorAndTerminal" id="editor" name="editor" rows="15" columns="80"></textarea>
+        <textarea class="editorAndTerminal" id="terminal" disabled="true"></textarea>
     </main>
 
+    <button id="submit">Submit</button>
 
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>  
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="apiCalls.js"></script>
     <script src="editor.js"></script>
 </body>
 
