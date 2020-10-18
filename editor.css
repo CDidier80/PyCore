@@ -15,21 +15,32 @@ body {
 }
 
 header {
+    height: 150px;
     display: grid;
-    grid-template-rows: 2fr 1fr;
+    grid-template-rows: 1.5fr 1fr;
     background-color: black;
+
 }
 
 .coreList {
+    justify-content: space-around;
     display: flex;
-    justify-content: space-evenly;
+    /* justify-content: space-evenly; */
     background-color: lightcoral;
+    align-items: center;
+}
+
+.core {
+    width: 10%;
+    background-color: blue;
+    border: 1px yellow solid;
+    border-radius: 80%;
+    align-items: center;
 }
 
 main {
     width: 80%;
     margin: 20px auto 20px auto;
-
     display: grid;
     grid-template-columns: 1fr 1fr;
     justify-content: center;
