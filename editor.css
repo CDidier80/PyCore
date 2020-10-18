@@ -1,0 +1,19 @@
+html {
+    background-color: white;
+}
+
+body {
+    background: darkgray;
+
+}
+
+main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: black;
+    
+}
+
+.editorAndTerminal {
+    background-color: white;
+}
