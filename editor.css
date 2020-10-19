@@ -12,6 +12,7 @@ body {
     text-align: center;
 
 
+
 }
 
 header {
@@ -38,6 +39,13 @@ header {
     align-items: center;
 }
 
+
+/* **************************************** */
+
+
+
+
+
 main {
     width: 80%;
     margin: 20px auto 20px auto;
@@ -46,10 +54,16 @@ main {
     justify-content: center;
     grid-gap: 20px;
     background-color: black;
-    
+    text-align: left;
 }
 
 .editorAndTerminal {
-    background-color: green;
+    background-color: white;
     /* height: 300px; */
+}
+
+#editor {
+
+    width: 620px;
+    height: 400px;
 }

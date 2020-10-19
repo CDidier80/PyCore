@@ -5,6 +5,14 @@ const API_CLIENT_SECRET = "cc4dea6d1c39a338423ea8c88ee1ccf7af46febb386c2739bc682
 const API_COMPILER_ENDPOINT = "https://cors-anywhere.herokuapp.com/https://api.jdoodle.com/v1/execute"
 const API_USAGE_CHECK_ENDPOINT = "https://cors-anywhere.herokuapp.com/https://api.jdoodle.com/v1/credit-spent"
 
+//  resources
+//   http(s)://thingproxy.freeboard.io/fetch/
+//  https://nordicapis.com/10-free-to-use-cors-proxies/
+//  trello example   https://trello.com/b/g6V7Aji2/battlebrush
+
+
+
+
 // ENDPOINTS only accept POST method supported with Content-Type: application/json
 
 // DOM Query Selections
@@ -30,8 +38,9 @@ const executeCode = async() => {
         console.log("Code sent to JDoodle: ", userCodePayload.script)
         const response = await axios.post(API_COMPILER_ENDPOINT, userCodePayload)
         console.log("Response received from API: ", response)
-        console.log("Response.output received from API: ", response.output)
-        terminal.innerText = response.output
+        let codeOutput = response.data.output
+        console.log("Response.output received from API: ", codeOutput)
+        terminal.innerText = codeOutput
 
     } catch(error){
         console.log(error)
@@ -57,7 +66,7 @@ const checkRequestCount = async() => {
     
 }
 
-checkRequestCount()
+// checkRequestCount()
 
 submitButton.addEventListener('click', executeCode)
 
