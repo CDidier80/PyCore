@@ -10,19 +10,7 @@ const API_USAGE_CHECK_ENDPOINT = "https://cors-anywhere.herokuapp.com/https://ap
 //  https://nordicapis.com/10-free-to-use-cors-proxies/
 //  trello example   https://trello.com/b/g6V7Aji2/battlebrush
 
-
-
-
 // ENDPOINTS only accept POST method supported with Content-Type: application/json
-
-// DOM Query Selections
-
-const editor = document.querySelector('#editor')
-const terminal = document.querySelector('#terminal')
-const submitButton = document.querySelector('#submit')
-
-
-
 
 const executeCode = async() => {
     try{
@@ -48,7 +36,6 @@ const executeCode = async() => {
     
 }
 
-
 const checkRequestCount = async() => {
     try{
 
@@ -56,7 +43,6 @@ const checkRequestCount = async() => {
             clientId: API_CLIENT_ID,
             clientSecret: API_CLIENT_SECRET
         }
-        
         const response = await axios.post(API_USAGE_CHECK_ENDPOINT, counterOptions)
         console.log(response)
 
@@ -65,13 +51,6 @@ const checkRequestCount = async() => {
     }
     
 }
-
-// checkRequestCount()
-
-submitButton.addEventListener('click', executeCode)
-
-
-
 
 // executeCode()
 // checkRequestCount()

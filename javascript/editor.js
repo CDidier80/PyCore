@@ -1,8 +1,13 @@
 
 
+// event listeners
+submitButton.addEventListener('click', executeCode)
+
+
+
 let codeEditor = ace.edit("editor") 
 
-
+console.log('editorMethods reached')
 let editorMethods = {
     init(){
         // theme
@@ -13,3 +18,9 @@ let editorMethods = {
 }
 
 editorMethods.init()
+
+
+
+
+
+
