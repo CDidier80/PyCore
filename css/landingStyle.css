@@ -1,0 +1,91 @@
+@font-face {
+    font-family: babapro;
+    src: url('baba-pro-webfont/babapro-webfont.woff2') format('woff2'),
+         url('baba-pro-webfont/babapro-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+html {
+    height: 100%;
+}
+
+body {
+    width: 100%;
+    min-height: 100%;
+    overflow: hidden;
+    background-color: black;
+    margin: 0;
+    font-family: babapro;
+    text-align: center;
+    color: white;
+
+}
+
+.theCore {
+    display: block;
+    position: relative;
+    margin: 0 auto;
+    width: 100%;
+
+}
+
+video {
+    display: block;
+    width: 60%;
+    margin: auto;
+    
+}
+
+h1.pycore {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-48%, -50%);
+    margin: 0;
+    padding: 0;
+
+    text-align: center;
+    font-family: babapro;
+    font-size: 2.5vw;
+
+    color: white;
+    animation: neon .6s ease-in-out infinite alternate;
+  }
+
+
+h2 {
+    color: white;
+} 
+
+
+
+/* img {
+    position: fixed;
+    bottom: 0px;
+    min-width: 100%;
+} */
+
+
+
+
+@keyframes neon {
+    from {
+      text-shadow:
+      0 0 5px rgba(202,228,225,0.92),
+      0 0 11px rgba(30,132,242,0.52),
+      0 0 19px rgba(30,132,242,0.92),
+      0 0 31px rgba(30,132,242,0.78),
+      0 0 51px rgba(30,132,242,0.92);
+    }
+    to {
+      text-shadow:
+      0 0 6px rgba(202,228,225,0.98),
+      0 0 12px rgba(30,132,242,0.58),
+      0 0 22px rgba(30,132,242,0.84),
+      0 0 38px rgba(30,132,242,0.88),
+      0 0 60px rgba(30,132,242,1);
+    }
+  }
