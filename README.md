@@ -1,6 +1,13 @@
 # PyCore
 
 ### *by Collin Didier* 
+
+![landing page view](media/readmeImages/landingPageView.png)
+
+
+
+
+
 ##### [GitHub](https://github.com/CDidier80) | [LinkedIn](https://www.linkedin.com/in/collin-didier-a072a858/)
 
 
@@ -17,7 +24,6 @@
 ### Description
 #### *A cloud-based Python 3 IDE designed for fast paced coding practice such that user's retain their knowledge and memory of the language's core concepts.*
 
-![landing page view](media/readmeImages/landingPageView.png)
 
 
 
