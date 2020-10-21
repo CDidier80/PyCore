@@ -2,8 +2,8 @@
 
 const API_CLIENT_ID = "2eb3d4df0f10dd5c96099c7d10885557"
 const API_CLIENT_SECRET = "cc4dea6d1c39a338423ea8c88ee1ccf7af46febb386c2739bc68281b09ea493d"
-// const API_COMPILER_ENDPOINT = "https://cors-anywhere.herokuapp.com/https://api.jdoodle.com/v1/execute"
-const API_COMPILER_ENDPOINT = "http(s)://thingproxy.freeboard.io/post/https://api.jdoodle.com/v1/execute"
+const API_COMPILER_ENDPOINT = "https://cors-anywhere.herokuapp.com/https://api.jdoodle.com/v1/execute"
+// const API_COMPILER_ENDPOINT = "http(s)://thingproxy.freeboard.io/post/https://api.jdoodle.com/v1/execute"
 
 const API_USAGE_CHECK_ENDPOINT = "https://cors-anywhere.herokuapp.com/https://api.jdoodle.com/v1/credit-spent"
 
@@ -15,6 +15,7 @@ const API_USAGE_CHECK_ENDPOINT = "https://cors-anywhere.herokuapp.com/https://ap
 // ENDPOINTS only accept POST method supported with Content-Type: application/json
 
 const executeCode = async(userCode) => {
+    
     try{
 
         let userCodePayload = {
@@ -34,8 +35,9 @@ const executeCode = async(userCode) => {
 
     } catch(error) {
         console.log(error)
-        return error
+        
     }
+    
     
 }
 
