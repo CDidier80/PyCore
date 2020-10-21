@@ -10,13 +10,16 @@
 
 
 html {
-    background-color: white;
+    background-color: black;
 }
 
 body {
+    display: grid;
+    grid-template-rows: 1fr 2.5fr;
     font-family: babapro;
     margin: auto;
     max-width: 1100px;
+    height: 100vh;
 
     background: black;
     color: white;
@@ -28,11 +31,42 @@ body {
 }
 
 header {
-    height: 150px;
+    padding-top: 15px;
     display: grid;
-    grid-template-rows: 1.5fr 1fr;
+    grid-template-rows: 3fr 1fr;
     background-color: black;
+    position: relative;
+    margin: auto;
+    margin-bottom: 20px;
+}
 
+
+.titleWrapper {
+    display: block;
+    /* position: relative; */
+    width: 30%;
+    margin: auto;
+}
+
+img.lesserCore {
+    width: 100%;
+    animation: rotate 60s linear infinite; 
+}
+
+h1.pycoreTitle {
+    position: absolute;
+    top: 41%;
+    left: 50%;
+    transform: translate(-47%, -50%);
+    margin: 0;
+    padding: 0;
+    font-size: 25px;
+    text-shadow:
+    0 0 6px rgba(202,228,225,0.98),
+    0 0 12px rgba(30,132,242,0.58),
+    0 0 22px rgba(30,132,242,0.84),
+    0 0 38px rgba(30,132,242,0.88),
+    0 0 60px rgba(30,132,242,1);
 }
 
 .coreList {
@@ -41,6 +75,9 @@ header {
     /* justify-content: space-evenly; */
     background-color: lightcoral;
     align-items: center;
+
+    display: none;
+
 }
 
 .core {
@@ -62,9 +99,7 @@ header {
 main.main {
     position: relative;
     width: 80%;
-    margin: 20px auto 20px auto;
-    /* display: grid; */
-    /* grid-template-rows: 1fr 1fr; */
+    margin: 10px auto 20px auto;
     justify-content: center;
     background-color: black;
     text-align: left;
@@ -80,14 +115,21 @@ div.editorAndTerminalGrid{
     display: grid;
     grid-gap: 8px;
     grid-template-rows: 3fr 1fr;
+    box-shadow: 
+    0 0 4px rgba(202,228,225,0.98),
+    0 0 10px rgba(30,132,242,0.58),
+    0 0 18px rgba(30,132,242,0.84),
+    0 0 30px rgba(30,132,242,0.88),
+    0 0 40px rgba(30,132,242,1);
 }
 
-#editor {
-    
+#editor, #terminal {
+
 }
 
 #terminal {
     background-color: rgb(255, 255, 255);
+    
 }
 
 
@@ -95,12 +137,28 @@ div.editorAndTerminalGrid{
 #submit {
     position: absolute;
     left: 46%;
-    bottom: 20%;
-    width: 8%;
-    height: 11%;
-    /* padding-top: 6%; */
-    background-color: rgb(181, 239, 247);
+    bottom: 19%;
+    width: 70px;
+    height: 70px;
+    padding: 0px;
+    padding-left: 4px;
+    margin: 0 auto;
     font-family: babapro;
-    border: black 3px solid;
+    border: rgb(111, 217, 255) 3px solid;
     border-radius: 50%;
+    
+    color: white;
+    background-color: rgb(0,0,0,1);
+    box-shadow: 
+    0 0 4px rgba(202,228,225,0.98),
+    0 0 10px rgba(30,132,242,0.58),
+    0 0 18px rgba(30,132,242,0.84),
+    0 0 30px rgba(30,132,242,0.88),
+    0 0 40px rgba(30,132,242,1);
+
 }
+
+
+@keyframes rotate{
+    to{ transform: rotate(360deg); }
+  }
