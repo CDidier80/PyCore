@@ -9,7 +9,12 @@
 </head>
 <body>
     <header class="header">
-        <h1 class="pycoreHeader">PyCore</h1>
+        
+        <div class="titleWrapper" id="titleWrapper">
+            <img class="lesserCore" src="/media/core.png" alt='core.png'/>
+            <h1 class="pycoreTitle">PyCore</h1>
+        </div>
+
         <div class='coreList'>
             <div class="core" id="challenge">Challenge</div>
             <div class="core" id="freeEdit">Free-Edit</div>
@@ -21,12 +26,12 @@
     </header>
 
     <main class="main">
-        <!-- <textarea class="editorAndTerminal" id="editorOld" name="editor" rows="15" columns="80"></textarea>
-        <textarea class="editorAndTerminal" id="terminal" disabled="true"></textarea> -->
+
         <div class="editorAndTerminalGrid"> 
             <div id="editor"></div>
-            <textarea id="terminal"></textarea>
+            <textarea readonly disabled id="terminal"></textarea>
         </div>
+
         <button id="submit">Submit</button>
 
     </main>
