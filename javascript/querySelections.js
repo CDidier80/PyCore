@@ -1,12 +1,9 @@
-// query selections
-
 // title, header and mode
 const header = document.querySelector('.header')
 const pycoreHeader = document.querySelector('.pycoreHeader')
 const coreList = document.querySelector('.coreList')
 const challenge = document.querySelector('#challenge')
 const freeEdit = document.querySelector('#freeEdit')
-
 
 // Side panel
 const hiddenMenubar = document.querySelector('.hiddenMenuBar')
