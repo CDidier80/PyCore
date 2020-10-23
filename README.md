@@ -53,11 +53,12 @@ Phase 1 of 2 is complete. The current version is deployed on surge with basic ed
 
 ### Current API Integration:
 ![landing page view](media/readmeImages/api.jpeg)
+
 The current API-integration is handled by sending post requests via public proxy by cors-anywhere. The use of this public proxy 
 will be replaced in the near future by an independent and scaleable private proxy. Code execution in the long-term may be migrated to Sphere Engine or may discontinue API integration altogether by deploying a Python compilation sandbox adjacent to a PyCore server. 
 
 ### How to get started: 
-Visit pycore.com/surge/sh and click "Begin" -- to begin practice. The site currently supports basic, unguided code editing and compilation. 
+Visit pycore.com/surge/sh and click "Begin" to navigate to the editor/console. The site currently supports basic, unguided code editing and compilation. 
 Look for further feature releases in late 2020 and early 2021.
 
 
