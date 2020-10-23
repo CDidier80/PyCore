@@ -8,7 +8,8 @@
 
 
 
-##### [GitHub](https://github.com/CDidier80) | [LinkedIn](https://www.linkedin.com/in/collin-didier-a072a858/)
+##### [GitHub](https://github.com/CDidier80) | [LinkedIn](https://www.linkedin.com/in/collin-didier-a072a858/) 
+##### Project status viewable at [Trello](https://trello.com/b/sE9WqlLd/pycore)
 
 
 #### Date: 10/17/2020
@@ -46,16 +47,23 @@ As a busy programmer, I want an intuitive and well organized interface to change
 
 
 
+### Project Status:
 
+Phase 1 of 2 is complete. The current version is deployed on surge with basic editing/code execution capability. Phase 2 completion scheduled in January 2021.
+
+### Current API Integration:
+![landing page view](media/readmeImages/api.jpeg)
+The current API-integration is handled by sending post requests via public proxy by cors-anywhere. The use of this public proxy 
+will be replaced in the near future by an independent and scaleable private proxy. Code execution in the long-term may be migrated to Sphere Engine or may discontinue API integration altogether by deploying a Python compilation sandbox adjacent to a PyCore server. 
 
 ### How to get started: 
-Visit "link TBD" and select a "core" -- a category of Python programming fundamentals -- to begin practice. Select a difficulty tier. You'll be taken to a new page with a code editor and console to view the output. Click start and follow on screen prompts. 
-
-
-
+Visit pycore.com/surge/sh and click "Begin" -- to begin practice. The site currently supports basic, unguided code editing and compilation. 
+Look for further feature releases in late 2020 and early 2021.
 
 
 
 #### Credits:
 JDoodle API for remote code execution
 https://www.jdoodle.com/
+Ace for embeddable editor
+https://github.com/ajaxorg/ace
