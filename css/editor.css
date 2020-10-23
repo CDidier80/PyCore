@@ -4,7 +4,6 @@
          url('/fonts/baba-pro-webfont/babapro-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
-
 }
 
 @font-face {
@@ -29,7 +28,6 @@ body {
     background: black;
     color: white;
     text-align: center;
-    
 }
 
 header {
@@ -42,10 +40,8 @@ header {
     margin-bottom: 0px;
 }
 
-
 .titleWrapper {
     display: block;
-    /* position: relative; */
     width: 30%;
     margin: auto;
 }
@@ -72,50 +68,19 @@ h1.pycoreTitle {
 }
 
 
-
-/* **************************************** */
-
-
-/* div.editorAndWidgets {
-    /* position: relative;
-    width: 80%;
-    margin: 10px auto 20px auto;
-    justify-content: center;
-    background-color: black;
-    text-align: left; */
-
-    /* width: 100%;
-    display: grid;
-    grid-template-columns: .1fr 4fr;
-    grid-column-gap: 10px; 
-    /* justify-content: center; */
-    /* background-color: black;
-    margin: 0; */
-
-
-
-div.editorAndWidgets {
+main.editorAndWidgets {
     width: 85%;
     display: grid;
     grid-template-columns: .02fr 4fr;
     grid-column-gap: 10px; 
     grid-auto-rows: minmax(60vh, 60vh);
-    /* justify-content: center; */
     background-color: black;
     margin: 0 auto;
-    
 }
 
-/* div.leftPanelFrame {
-    position: relative;
-} */
-
-
-/*  left options panel   */
 
 div.hiddenMenuBar {
     display: block;
-    /* width: 10%; */
     background-color: rgb(111, 217, 255);
     box-shadow: 
     0 0 4px rgba(202,228,225,0.98),
@@ -126,11 +91,8 @@ div.hiddenMenuBar {
     cursor: pointer;
 }
 
-
-
 div.panel {
     overflow: auto;
-    /* justify-self: right; */
     display: none;
     flex-direction: column;
     background-color: black;
@@ -142,94 +104,78 @@ div.panel {
     0 0 30px rgba(30,132,242,0.88),
     0 0 40px rgba(30,132,242,1);
     cursor: pointer;
-    
-
 }
     
-                    .difficutlyWidget {
-                        flex-basis: 16%;
-                        background-color: blue;
-                        display: grid;
-                        grid-template-rows: 1fr 2fr;
-                        text-align: center;
-                        padding-bottom: 3px;
-                    }
+.difficutlyWidget {
+    flex-basis: 16%;
+    background-color: blue;
+    display: grid;
+    grid-template-rows: 1fr 2fr;
+    text-align: center;
+    padding-bottom: 3px;
+}
 
-                        .difficultyText {
-                            padding-top: 5px;
-                            display: block;
-                            margin: 0 auto;
-                            font-size: 14px;
-                            
-                        }
+.difficultyText {
+    padding-top: 5px;
+    display: block;
+    margin: 0 auto;
+    font-size: 14px;
+}
 
-                        .difficultyOptions {
-                            display: flex;
-                            justify-content: space-around;
-                            padding-top: 3%;
-                            padding-bottom: 3%;
-                        }
+.difficultyOptions {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 3%;
+    padding-bottom: 3%;
+}
 
+.option {
+    border-radius: 50%;
+    flex-basis: 25%;
+}
 
-                            .option {
-                                border-radius: 50%;
-                                flex-basis: 25%;
+.easy {
+    background-color: green;
+}
 
-                            }
-                            .easy {
-                                background-color: green;
-                            }
+.medium {
+    background-color: yellow;
+}
 
-                            .medium {
-                                background-color: yellow;
-                            }
+.hard {
+    background-color: red;
+}
 
-                            .hard {
-                                background-color: red;
-                            }
+.coreSelectionHeader {
+    flex-basis: 10%;
+    background-color: orange;
+    text-align: center;  
+    position: relative;
+}
 
+.coresContainer {
+    margin: auto;
+    position: absolute;
+    width: 100%;
+    top: 30%;
+}
 
+.scrollContainer {
+    flex-basis: 80%;
+    background-color: green;
+    overflow: auto;
+    font-size: 11px;
+    font-family: 'esqadero';
+}
 
-
-
-                            .coreSelectionHeader {
-                                flex-basis: 10%;
-                                background-color: orange;
-                                text-align: center;  
-                                position: relative;
-                            }
-                                .coresContainer {
-                                    margin: auto;
-                                    position: absolute;
-                                    width: 100%;
-                                    top: 30%;
-                                }
-
-                            .scrollContainer {
-                                flex-basis: 80%;
-                                background-color: green;
-                                overflow: auto;
-                                font-size: 11px;
-                                font-family: 'esqadero';
-                            }
-
-                                .core {
-                                    margin: 0 auto;
-                                    height: 5vh;
-                                    background-color: red;
-                                    border: black 3px solid;
-                                }
-
-
-
-
-/*   Game bar, editor, and terminal    */
+.core {
+    margin: 0 auto;
+    height: 5vh;
+    background-color: red;
+    border: black 3px solid;
+}
 
 div.gamebarEditorTerminal{
-    /* margin: 0 auto; */
-    /* width: 700px;
-    min-width: 600px; */
-    /* height: 500px; */
     display: grid;
     grid-gap: 0px;
     grid-template-rows: 1fr .03fr 4fr .1fr 1.5fr;
@@ -243,118 +189,107 @@ div.gamebarEditorTerminal{
     position: relative;
 }
 
-                            div.gameBar {
-                                /* width: 100%; */
-                                /* height: auto; */
-                                display: flex;
-                                justify-content: space-between;
-                                background-color: yellow;
-                                position: relative;
-                            }
+div.gameBar {
+    display: flex;
+    justify-content: space-between;
+    background-color: yellow;
+    position: relative;
+}
 
-                            div.flexTrio {
-                                background-color: lightblue;
-                                padding: 0;
-                                text-align: center;
-                                border-bottom: 1px black solid;
-                                border-top: 1px black solid;
-                            }
+div.flexTrio {
+    background-color: lightblue;
+    padding: 0;
+    text-align: center;
+    border-bottom: 1px black solid;
+    border-top: 1px black solid;
+}
 
-                            #chooseCoreButton {
-                                flex-basis: 14%;
-                                min-width: 12%;
-                                color: white;
-                                background-color: rgb(0,0,0,1);
-                                text-align: center;
-                                padding-top: 19px;
-                                cursor: pointer;
-                            }
+#chooseCoreButton {
+    flex-basis: 14%;
+    min-width: 12%;
+    color: white;
+    background-color: rgb(0,0,0,1);
+    text-align: center;
+    padding-top: 19px;
+    cursor: pointer;
+}
 
-                            .chooseCoreText {
-                            font-size: 13px;
-                            padding: 0;
-                            margin: 0;
+.chooseCoreText {
+font-size: 13px;
+padding: 0;
+margin: 0;
+}
 
-                            }
-
-                            #coreText{
-                                padding-top: 5px;
-                            }
+#coreText{
+    padding-top: 5px;
+}
 
 
-                            #prompt {
-                                padding-left: 4px;
-                                padding-top: 4px;
-                                flex-basis: 74%;
-                                text-align: left;
-                                color: black;
-                                font-family: esqadero;
-                                background: rgb(188,238,255);
-                                background: radial-gradient(circle, rgba(188,238,255,1) 43%, rgba(173,177,255,1) 100%);
-                                /* text-overflow: hidden;
-                                align-self: flex-start; */
-                                /* justify-content: left; */
+#prompt {
+    padding-left: 4px;
+    padding-top: 4px;
+    flex-basis: 74%;
+    text-align: left;
+    color: black;
+    font-family: esqadero;
+    background: rgb(188,238,255);
+    background: radial-gradient(circle, rgba(188,238,255,1) 43%, rgba(173,177,255,1) 100%);
+}
 
-                            }
+#startQuit {
+    flex-basis: 12%;
+    min-width: 12%;
+    color: white;
+    background-color: rgb(0,0,0,1);
+    text-align: center;
+    padding-top: 25px;
+}
 
-                            #startQuit {
-                                flex-basis: 12%;
-                                min-width: 12%;
-                                color: white;
-                                background-color: rgb(0,0,0,1);
-                                text-align: center;
-                                padding-top: 25px;
-                            }
+.divider {
+    background: linear-gradient(90deg, rgba(173,216,230,1) 0%, rgb(77, 77, 255) 50%, rgba(176,216,230,1) 100%);
+    border-left: black 1px solid;
+    border-right: black 1px solid;
+}
 
-                            .divider {
-                                background: linear-gradient(90deg, rgba(173,216,230,1) 0%, rgb(77, 77, 255) 50%, rgba(176,216,230,1) 100%);
-                                border-left: black 1px solid;
-                                border-right: black 1px solid;
-                            }
+#editor {
+    border-bottom: 2px solid black;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    font-family: "Monaco";
+    font-size: 14px;
+}
 
-                            #editor {
-                                border-bottom: 2px solid black;
-                                border-left: 1px solid black;
-                                border-right: 1px solid black;
-                                font-family: "Monaco";
-                                font-size: 14px;
-                            }
+#terminal {
+    font-size: 14px;
+    font-family: "Monaco";
+    background: rgb(227,248,255);
+    background: radial-gradient(circle, rgba(227,248,255,1) 17%, rgb(161, 163, 216) 100%);
+    border-top: 1px solid black;
+    border: solid rgb(2, 17, 99) 1px;
+}
 
-                            #terminal {
-                                font-size: 14px;
-                                font-family: "Monaco";
-                                background: rgb(227,248,255);
-                                background: radial-gradient(circle, rgba(227,248,255,1) 17%, rgb(161, 163, 216) 100%);
-                                border-top: 1px solid black;
-                                border: solid rgb(2, 17, 99) 1px;
-                            }
-
-
-
-                            #submit {
-                                position: absolute;
-                                left: 45%;
-                                bottom: 16%;
-                                width: 70px;
-                                height: 70px;
-                                padding: 0px;
-                                padding-left: 4px;
-                                margin: 0 auto;
-                                font-family: babapro;
-                                border: rgb(111, 217, 255) 3px solid;
-                                border-radius: 50%;
-                                
-                                color: white;
-                                background-color: rgb(0,0,0,1);
-                                box-shadow: 
-                                0 0 4px rgba(202,228,225,0.98),
-                                0 0 10px rgba(30,132,242,0.58),
-                                0 0 18px rgba(30,132,242,0.84),
-                                0 0 30px rgba(30,132,242,0.88),
-                                0 0 40px rgba(30,132,242,1);
-
-                            }
-
+#submit {
+    position: absolute;
+    left: 45%;
+    bottom: 16%;
+    width: 70px;
+    height: 70px;
+    padding: 0px;
+    padding-left: 4px;
+    margin: 0 auto;
+    font-family: babapro;
+    border: rgb(111, 217, 255) 3px solid;
+    border-radius: 50%;
+    
+    color: white;
+    background-color: rgb(0,0,0,1);
+    box-shadow: 
+    0 0 4px rgba(202,228,225,0.98),
+    0 0 10px rgba(30,132,242,0.58),
+    0 0 18px rgba(30,132,242,0.84),
+    0 0 30px rgba(30,132,242,0.88),
+    0 0 40px rgba(30,132,242,1);
+}
 
 @keyframes rotate{
     to{ transform: rotate(360deg); }
