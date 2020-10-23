@@ -1,9 +1,16 @@
 // API Variables
+let proxyList = [
+    "https://cors-anywhere.herokuapp.com/",
+    "https://thingproxy.freeboard.io/",
+    "https://cors-proxy.htmldriven.com/",
+    "http://anyorigin.com/go?url=",
+    "https://api.allorigins.win/post?url="
 
+]
 const API_CLIENT_ID = "2eb3d4df0f10dd5c96099c7d10885557"
 const API_CLIENT_SECRET = "cc4dea6d1c39a338423ea8c88ee1ccf7af46febb386c2739bc68281b09ea493d"
-const API_COMPILER_ENDPOINT = "https://cors-anywhere.herokuapp.com/https://api.jdoodle.com/v1/execute"
-// const API_COMPILER_ENDPOINT = "http(s)://thingproxy.freeboard.io/post/https://api.jdoodle.com/v1/execute"
+const API_COMPILER_ENDPOINT = "https://api.jdoodle.com/v1/execute"
+
 
 const API_USAGE_CHECK_ENDPOINT = "https://cors-anywhere.herokuapp.com/https://api.jdoodle.com/v1/credit-spent"
 
@@ -27,7 +34,8 @@ const executeCode = async(userCode) => {
         }
 
         console.log("Code sent to JDoodle: ", userCodePayload.script)
-        const response = await axios.post(API_COMPILER_ENDPOINT, userCodePayload)
+        const response = await axios.post(proxyList[0]+API_COMPILER_ENDPOINT, userCodePayload)
+        // const response = await axios.post(API_COMPILER_ENDPOINT, userCodePayload)
         console.log("Response received from API: ", response)
         let codeOutput = response.data.output
         console.log("Response.output received from API: ", codeOutput)
@@ -40,6 +48,20 @@ const executeCode = async(userCode) => {
     
     
 }
+
+
+
+const PyPyJsExecute = (code) => {
+    console.log('reached')
+    pypyjs.ready().then(function() {
+    //     // return pypyjs.exec(code)
+    //     console.log(pypyjs.eval(code))
+        return pypyjs.exec(code)
+    })}
+
+
+
+
 
 const checkRequestCount = async() => {
     try{
