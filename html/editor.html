@@ -9,95 +9,58 @@
 </head>
 <body>
     <header class="header">
-        
         <div class="titleWrapper" id="titleWrapper">
             <img class="lesserCore" src="/media/core.png" alt='core.png'/>
             <h1 class="pycoreTitle">PyCore</h1>
         </div>
-
     </header>
-
-
-
-    <!-- <main class="main">  a content wrapper -->
-
-        <div class="editorAndWidgets">
-
-            <div class="hiddenMenuBar"></div>
-
-            <div class='panel'>
-                <div class='difficutlyWidget'>
-                    <h4 class="difficultyText">Difficulty</h4>
-                    <div class="difficultyOptions">
-                        <div class='easy option'></div>
-                        <div class="medium option"></div>
-                        <div class="hard option"></div>
-                    </div>
-                </div>
-
-                <div class="coreSelectionHeader">
-                    <div class="coresContainer">Cores</div>
-                </div>
-                <div class="scrollContainer">
-                    <h3 class="core">Printing Expressions</h3>
-                    <h3 class="core">Variables</h3>
-                    <h3 class="core">For Loops</h3>
-                    <h3 class="core">While Loops</h3>
-                    <h3 class="core">If-Statements</h3>
-                    <h3 class="core">Functions</h3>
-                    <h3 class="core">Classes</h3>
-                    <h3 class="core">Objects</h3>
+    <main class="editorAndWidgets">
+        <div class="hiddenMenuBar"></div>
+        <div class='panel'>
+            <div class='difficutlyWidget'>
+                <h4 class="difficultyText">Difficulty</h4>
+                <div class="difficultyOptions">
+                    <div class='easy option'></div>
+                    <div class="medium option"></div>
+                    <div class="hard option"></div>
                 </div>
             </div>
-
-
-
-            <div class="gamebarEditorTerminal"> 
-                <div class='gameBar'>
-                    <div  class="flexTrio"  id="chooseCoreButton">
-                        <p class="chooseCoreText" id="choose">Choose</p>
-                        <p class="chooseCoreText" id="coreText">Core</p>
-                    </div>
-                    <div class="flexTrio"  id="prompt">Write a for loop</div>
-                    <div  class="flexTrio" id="startQuit">Start</div> 
-                </div>
-                <div class="divider" id='divider2'></div>
-                <div id="editor"></div>
-                <div class="divider" id='divider2'></div>
-                <textarea readonly disabled id="terminal"></textarea>
-                <button id="submit">Submit</button>
+            <div class="coreSelectionHeader">
+                <div class="coresContainer">Cores</div>
             </div>
-    
-
-        </div> <!-- editorAndWidgets-->
-
-        
-<!-- 
-    </main> -->
-
-
-    
-
-
-
-
-    <!-- shim for ES6 `Promise` builtin -->
-    <script src="/PyPyJs/lib/Promise.min.js" type="text/javascript"></script>
-    <!-- shim for off-main-thread function compilation -->
-    <script src="/PyPyJs/lib/FunctionPromise.js" type="text/javascript"></script>
-    <script src="/PyPyJs/lib/pypyjs.js" type="text/javascript"></script>
+            <div class="scrollContainer">
+                <h3 class="core">Printing Expressions</h3>
+                <h3 class="core">Variables</h3>
+                <h3 class="core">For Loops</h3>
+                <h3 class="core">While Loops</h3>
+                <h3 class="core">If-Statements</h3>
+                <h3 class="core">Functions</h3>
+                <h3 class="core">Classes</h3>
+                <h3 class="core">Objects</h3>
+            </div>
+        </div>
+        <div class="gamebarEditorTerminal"> 
+            <div class='gameBar'>
+                <div  class="flexTrio" id="chooseCoreButton">
+                    <p class="chooseCoreText" id="choose">Choose</p>
+                    <p class="chooseCoreText" id="coreText">Core</p>
+                </div>
+                <div class="flexTrio" id="prompt">Write a for loop</div>
+                <div  class="flexTrio" id="startQuit">Start</div> 
+            </div>
+            <div class="divider" id='divider2'></div>
+            <div id="editor"></div>
+            <div class="divider" id='divider2'></div>
+            <textarea readonly disabled id="terminal"></textarea>
+            <button id="submit">Submit</button>
+        </main>
+    </div>
+    <script src="/javascript/apiKeys.js"></script> <!--private script file not included in repository-->
     <script src = "/ace/ace.js"></script>
     <script src="/ace/mode-javascript.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-
-
-
-    <!-- <script src="/codepress/codepress.js" type="text/javascript"></script> -->
     <script src="/javascript/querySelections.js"></script>
     <script src="/javascript/apiCalls.js"></script>
     <script src="/javascript/editor.js"></script>
-    
-
 </body>
-
 </html>
