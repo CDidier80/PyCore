@@ -1,50 +1,24 @@
-
-// event listeners
-
-
-
-
-
-
-
-// let editorOptions = {
-
-// }
-
-
-
 let codeEditor = ace.edit("editor") 
 
 let editorMethods = {
     init(){
-      
         codeEditor.setTheme('ace/theme/tomorrow_night_blue')
         codeEditor.session.setMode('ace/mode/python')
-        // codeEditor.setOptions(0)
     }
 }
 
 editorMethods.init()
 
-console.log(codeEditor.getOptions)
-
 submitButton.addEventListener('click', () => {
     let code = codeEditor.getValue()
+    
     if (code === ""){
         terminal.value = "error: no code to execute"
         return
     }
-    // user this or original dom selection ('editor')? --
-    // let output = executeCode(code).then()
-    executeCode(code).then(function(result){terminal.value=result})
-    // output = PyPyJsExecute(code).then(function(result){terminal.value=result})
-    // output = PyPyJsExecute(code)
-    // terminal.innerText = output
-    // console.log("output variable value in event listener: ", output)
-                                                               
 
+    executeCode(code).then(function(result) { terminal.value = result })                                                   
 }) 
-
 
 chooseCoreButton.addEventListener('click', (event) => {
     if (choose.innerText === "Choose") {
@@ -60,6 +34,4 @@ chooseCoreButton.addEventListener('click', (event) => {
         choose.textContent = 'Choose'
         coreText.textContent = 'Core'
     }
-
-
 })
