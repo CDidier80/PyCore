@@ -7,30 +7,34 @@
     <title>PyCore</title>
 </head>
 <body>
-    <div class="theCore">
-        <h1 id='pycore' class='pycore'>PyCore</h1>
-        <h6 id="subtitle">Rapid-Fire Python Coding</h6>
-        <video loop muted autoplay>
-            <source src='/media/PyCoreVideo.mov'> 
-            <source src='/media/PyCoreVideo.mov' type="video/webm"> 
-            <source src='/media/PyCoreVideo.mov' type="video/mp4">
-            <source src='/media/PyCoreVideo.mov' type="video/ogg">  
-        </video>
+    <div id="loader"></div> 
+    <div class="pageContent">
+        <div class="theCore">
+            <h1 id='pycore' class='pycore'>PyCore</h1>
+            <h6 id="subtitle">Rapid-Fire Python Coding</h6>
+            <video loop muted autoplay>
+                <source src='/media/PyCoreVideo.mov'> 
+                <source src='/media/PyCoreVideo.mov' type="video/webm"> 
+                <source src='/media/PyCoreVideo.mov' type="video/mp4">
+                <source src='/media/PyCoreVideo.mov' type="video/ogg">  
+            </video>
+        </div>
+        <div class='threeCores'>
+            <div class="coreWrapper" id="speedWrapper">
+                <img class="lesserCore" src="/media/core.png" alt='core.png'/>
+                <h3 class="listItem" id="speed">Speed</h3>
+            </div>
+            <div class="coreWrapper" id="memoryWrapper"> 
+                <img class="lesserCore" src="/media/core.png" alt='core.png'/>
+                <h3 class="listItem" id="memory">Memory</h3>
+            </div>
+            <div class="coreWrapper" id="challengeWrapper"> 
+                <img class="lesserCore" src="/media/core.png" alt='core.png'/>
+                <h3 class="listItem" id="challenge">Challenge</h3>
+            </div>
+        </div>
+        <a id="begin" href="/html/editor.html">Begin</a>
     </div>
-    <div class='threeCores'>
-        <div class="coreWrapper" id="speedWrapper">
-            <img class="lesserCore" src="/media/core.png" alt='core.png'/>
-            <h3 class="listItem" id="speed">Speed</h3>
-        </div>
-        <div class="coreWrapper" id="memoryWrapper"> 
-            <img class="lesserCore" src="/media/core.png" alt='core.png'/>
-            <h3 class="listItem" id="memory">Memory</h3>
-        </div>
-        <div class="coreWrapper" id="challengeWrapper"> 
-            <img class="lesserCore" src="/media/core.png" alt='core.png'/>
-            <h3 class="listItem" id="challenge">Challenge</h3>
-        </div>
-    </div>
-    <a id="begin" href="/html/editor.html">Begin</a>
+    <script src="javascript/loading.js"></script>
 </body>
 </html>
