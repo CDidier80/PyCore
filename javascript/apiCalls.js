@@ -1,4 +1,4 @@
-// Variable declarations for API authentication supplied in private JS file
+require('dotenv').config()
 
 const API_COMPILER_ENDPOINT = "https://api.jdoodle.com/v1/execute"
 const API_USAGE_CHECK_ENDPOINT = "https://cors-anywhere.herokuapp.com/https://api.jdoodle.com/v1/credit-spent"
@@ -7,10 +7,10 @@ const executeCode = async(userCode) => {
     try {
         let userCodePayload = {
             script : userCode,
-            language : "python3",
             versionIndex : "3",
-            clientId : API_CLIENT_ID,
-            clientSecret : API_CLIENT_SECRET
+            language : "python3",
+            clientId : process.env.API_CLIENT_ID,
+            clientSecret : process.env.API_CLIENT_SECRET
         }
 
         console.log("Code sent to JDoodle: ", userCodePayload.script)
