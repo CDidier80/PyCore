@@ -1,8 +1,0 @@
-*.pyc
-*.pyo
-*~
-*.swp
-build
-.DS_Store
-lib/modules/
-lib/pypyjs.vm.*
