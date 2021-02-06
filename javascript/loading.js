@@ -1,9 +1,6 @@
 console.log("loading.js is active")
 console.log(getComputedStyle(document.querySelector('.pageContent')))
 
-
-
-
 // document.onreadystatechange = function() { page
 //     if (document.readyState !== "complete") { 
 //         body.style.visibility = "hidden"
@@ -35,9 +32,6 @@ console.log(getComputedStyle(document.querySelector('.pageContent')))
 
 //     pageContent.style.visibility = 'hidden'
 
-
-
-    
 // }, 5000)
 
 
@@ -55,6 +49,5 @@ window.onload = (event) => {
         loader.style.visibility = 'hidden'
         pageContent.style.visibility = 'visible'
     }
-
-  }
+}
 

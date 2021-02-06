@@ -18,18 +18,9 @@ submitButton.addEventListener('click', () => {
     }
 
     executeCode(code).then((result) => {
-        console.log(result)
-        // let answer = result
-        //  (answer === "screaming goat") {
-        //     console.log('if statement reached')
-        //     terminal.value = result
-        //     goat.play()
-        //     return
-        // }
         terminal.value = result
         winSound.play()
         submitButton.classList.toggle('testing')      
-        // goat.play()
     })                                     
 }) 
 
