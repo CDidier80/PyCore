@@ -95,6 +95,7 @@ main.editorAndWidgets {
     grid-auto-rows: minmax(60vh, 60vh);
     background-color: black;
     margin: 0 auto;
+    min-width: 600px;
 }
 
 
@@ -210,8 +211,8 @@ div.panel {
     background-color: black;
   }
   .scrollContainer::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 10px 10px black;
-    border: solid 3px transparent;
+        box-shadow: inset 0 0 10px 10px black;
+        border: solid 3px transparent;
 }
   .scrollContainer::-webkit-scrollbar-thumb {
     /* background-color: rgb(111, 217, 255) ;
@@ -225,6 +226,7 @@ div.panel {
    
 .core {
     margin: 0 auto;
+    /* overflow: anchor; */
     color: black;
     /* font-style: italic; */
     height: 3vh;
@@ -330,7 +332,7 @@ margin: 0;
     border: solid rgb(2, 17, 99) 1px;
 }
 
-#submit {
+.submit {
     position: absolute;
     left: 45%;
     bottom: 16%;
@@ -340,9 +342,10 @@ margin: 0;
     padding-left: 4px;
     margin: 0 auto;
     font-family: babapro;
+    /* transition-property: color 1.3s, box-shadow 1.3s; */
     border: rgb(111, 217, 255) 3px solid;
     border-radius: 50%;
-    
+    outline-style: none;
     color: white;
     background-color: rgb(0,0,0,1);
     box-shadow: 
@@ -353,6 +356,53 @@ margin: 0;
         0 0 40px rgba(30,132,242,1);
 }
 
+.testing {
+    color: yellow;
+    /* box-shadow:
+        0 0 4px rgba(239, 242, 191, 0.98),
+        0 0 10px rgba(243, 255, 23, 0.58),
+        0 0 18px rgba(243, 255, 23, 0.58),
+        0 0 30px rgba(243, 255, 23, 0.58),
+        0 0 40px rgba(243, 255, 23, 0.58); */
+    animation: pulse .4s infinite;
+}
+
 @keyframes rotate{
     to{ transform: rotate(360deg); }
+  }
+
+  @keyframes pulse {
+    from {
+        border: rgba(243, 255, 23, 0.58) 3px solid;
+        /* width: 70px;
+        height: 70px; */
+        box-shadow:
+            0 0 4px rgba(239, 242, 191, 0.98),
+            0 0 10px rgba(243, 255, 23, 0.58),
+            0 0 18px rgba(243, 255, 23, 0.58),
+            0 0 30px rgba(243, 255, 23, 0.58),
+            0 0 40px rgba(243, 255, 23, 0.58);
+    }
+    50% {
+        border: rgba(243, 255, 23, 0.58) 3px solid;
+        /* width: 72px;
+        height: 72px; */
+        box-shadow:
+            0 0 12px rgba(239, 242, 191, 0.98),
+            0 0 18px rgba(243, 255, 23, 0.58),
+            0 0 27px rgba(243, 255, 23, 0.58),
+            0 0 40px rgba(243, 255, 23, 0.58),
+            0 0 55px rgba(243, 255, 23, 0.58);
+    }
+    to {
+        border: rgba(243, 255, 23, 0.58) 3px solid;
+        /* width: 72px;
+        height: 72px; */
+        box-shadow:
+            0 0 4px rgba(239, 242, 191, 0.98),
+            0 0 10px rgba(243, 255, 23, 0.58),
+            0 0 18px rgba(243, 255, 23, 0.58),
+            0 0 30px rgba(243, 255, 23, 0.58),
+            0 0 40px rgba(243, 255, 23, 0.58);
+    }
   }
