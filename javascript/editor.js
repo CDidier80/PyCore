@@ -10,14 +10,27 @@ let editorMethods = {
 editorMethods.init()
 
 submitButton.addEventListener('click', () => {
+    submitButton.classList.add('testing')
     let code = codeEditor.getValue()
-    
     if (code === ""){
         terminal.value = "error: no code to execute"
         return
     }
 
-    executeCode(code).then(function(result) { terminal.value = result })                                                   
+    executeCode(code).then((result) => {
+        console.log(result)
+        // let answer = result
+        //  (answer === "screaming goat") {
+        //     console.log('if statement reached')
+        //     terminal.value = result
+        //     goat.play()
+        //     return
+        // }
+        terminal.value = result
+        winSound.play()
+        submitButton.classList.toggle('testing')      
+        // goat.play()
+    })                                     
 }) 
 
 chooseCoreButton.addEventListener('click', (event) => {
