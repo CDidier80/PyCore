@@ -1,0 +1,130 @@
+div.panel {
+    overflow: auto;
+    display: none;
+    flex-direction: column;
+    background-color: black;
+    border: rgb(111, 217, 255) 3px solid;
+    box-shadow: 
+        0 0 4px rgba(202,228,225,0.98),
+        0 0 10px rgba(30,132,242,0.58),
+        0 0 18px rgba(30,132,242,0.84),
+        0 0 30px rgba(30,132,242,0.88),
+        0 0 40px rgba(30,132,242,1);
+        cursor: pointer;
+}
+    
+.difficutlyWidget {
+    flex-basis: 16%;
+    background-color: black;
+    display: grid;
+    grid-template-rows: 1fr 2fr;
+    text-align: center;
+    padding-bottom: 3px;
+    border-bottom: lightblue 1px solid;
+}
+
+.difficultyText {
+    padding-top: 5px;
+    display: block;
+    margin: 0 auto;
+    font-size: 14px;
+}
+
+.difficultyOptions {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 3%;
+    padding-bottom: 3%;
+}
+
+.option {
+    border-radius: 50%;
+    flex-basis: 25%;
+    background-color: black;
+}
+
+.easy {
+    border: 3px solid green;
+    box-shadow:
+        0 0 4px rgba(199, 237, 194, 0.98),
+        0 0 8px rgba(57, 255, 80, 0.58),
+        0 0 16px rgba(57, 255, 80, 0.58),
+        0 0 21px rgba(57, 255, 80, 0.58);
+}
+
+.medium {
+    border: 3px solid yellow;
+    box-shadow:
+        0 0 4px rgba(255, 253, 192, 0.98),
+        0 0 8px rgba(243, 255, 23, 0.58),
+        0 0 16px rgba(243, 255, 23, 0.58),
+        0 0 21px rgba(243, 255, 23, 0.58);
+}
+
+.hard {
+    border: 3px solid red;
+    box-shadow:
+        0 0 4px rgba(255, 189, 189, 0.98),
+        0 0 8px rgba(255, 23, 23, 0.58),
+        0 0 16px rgba(255, 23, 23, 0.58),
+        0 0 21px rgba(255, 23, 23, 0.58);
+}
+
+.coreSelectionHeader {
+    flex-basis: 10%;
+    background-color: black;
+    text-align: center;  
+    position: relative;
+    border-bottom: darkblue 3px solid;
+}
+
+.coresContainer {
+    margin: auto;
+    position: absolute;
+    width: 100%;
+    top: 30%;
+}
+
+.scrollContainer {
+    flex-basis: 80%;
+    background-color: green;
+    overflow: auto;
+    font-size: 11px;
+    font-family: 'esqadero';
+}
+
+.scrollContainer::-webkit-scrollbar {
+    width: 7px;
+    background-color: black;
+  }
+  .scrollContainer::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 10px 10px black;
+        border: solid 3px transparent;
+}
+  .scrollContainer::-webkit-scrollbar-thumb {
+
+        /* background-color: rgb(111, 217, 255) ;
+    width: 1px; */
+
+    box-shadow: inset 0 0 10px 10px rgb(41, 187, 236);
+    border: solid 3px transparent;
+    /* border-radius: 3px; */
+    /* -webkit-box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.025); */
+  }
+
+
+   
+.core {
+    margin: 0 auto;
+    /* overflow: anchor; */
+    color: black;
+    /* font-style: italic; */
+    height: 3vh;
+    background-color: black;
+    padding-top: 5%;
+    border-bottom: black 1px solid;
+    background: rgb(188,238,255);
+    background: radial-gradient(circle, rgba(188,238,255,1) 43%, rgba(173,177,255,1) 100%);
+    /* border-left: lightblue 1px solid;
+    border-bottom: lightblue 1px solid; */
+}

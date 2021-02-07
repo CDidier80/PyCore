@@ -1,0 +1,15 @@
+@font-face {
+    font-family: babapro;
+    src: url('/fonts/baba-pro-webfont/babapro-webfont.woff2') format('woff2'),
+         url('/fonts/baba-pro-webfont/babapro-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'esqadero';
+    src: url('/fonts/esqadero/esqadero_ff_cy_4f-regular-webfont.woff2') format('woff2'),
+         url('fonts/esqadero/esqadero_ff_cy_4f-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
