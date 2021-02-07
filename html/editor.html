@@ -4,76 +4,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/topFlexbox.css">
     <link rel="stylesheet" href="/css/editor.css">
+    <link rel="stylesheet" href="/css/fonts.css">
     <title>PyCore</title>
 </head>
-<body>
-    <audio class='winSound'>
-        <source src="/media/winSound.mp3" type="audio/mp3">
-    </audio>
-    <audio class='goat'>
-        <source src="/media/screamingGoat.mp3" type="audio/mp3">
-    </audio>
 
-    <header class="header">
-        <div class="titleWrapper" id="titleWrapper">
-            <img class="lesserCore" src="/media/core.png" alt='core.png'/>
-            <h1 class="pycoreTitle blueText">PyCore</h1>
-        </div>
-    </header>
-    <main class="editorAndWidgets">
-        <div class="hiddenMenuBar"></div>
-        <div class='panel'>
-            <div class='difficutlyWidget'>
-                <h4 class="difficultyText blueText">Difficulty</h4>
-                <div class="difficultyOptions">
-                    <div class='easy option'></div>
-                    <div class="medium option"></div>
-                    <div class="hard option"></div>
+
+    <body>
+        <audio class='winSound'>
+            <source src="/media/winSound.mp3" type="audio/mp3">
+        </audio>
+
+
+        <div class="editor-top-flexbox">
+            
+                <div class="options-button-flex-item" id="options-flexitem">
+                    <div class="rotating-cirle smaller rotate-counter-clockwise"> </div>
+                    <h1 class="top-flex-text smaller-text  blue-text" id="options">options</h1>
                 </div>
-            </div>
-            <div class="coreSelectionHeader">
-                <div class="coresContainer blueText">Cores</div>
-            </div>
-            <div class="scrollContainer">
-                <h3 class="core">Printing Expressions</h3>
-                <h3 class="core">Data Types</h3>
-                <h3 class="core">Variables</h3>
-                <h3 class="core">For Loops</h3>
-                <h3 class="core">While Loops</h3>
-                <h3 class="core">If-Statements</h3>
-                <h3 class="core">Functions</h3>
-                <h3 class="core">Classes</h3>
-                <h3 class="core">Inheritance</h3>
-                <h3 class="core">Imports</h3>
-                <h3 class="core">Modules</h3>
-                <h3 class="core">Libraries</h3>
-                <h3 class="core">Executables</h3>
-            </div>
-        </div>
-        <div class="gamebarEditorTerminal"> 
-            <div class='gameBar'>
-                <div  class="flexTrio" id="chooseCoreButton">
-                    <p class="chooseCoreText" id="choose">Choose</p>
-                    <p class="chooseCoreText" id="coreText">Core</p>
+                
+                <div class="title-wrapper-flex-item" id="titleWrapper">
+                    <div class="rotating-cirle rotate-clockwise"> </div>
+                    <h1 class="top-flex-text pycore-header blue-text">PyCore</h1>
                 </div>
-                <div class="flexTrio" id="prompt">Write a for loop</div>
-                <div  class="flexTrio" id="startQuit">Start</div> 
-            </div>
-            <div class="divider" id='divider2'></div>
-            <div id="editor"></div>
-            <div class="divider" id='divider2'></div>
-            <textarea readonly disabled id="terminal"></textarea>
-            <button class="submit" id="submit">Submit</button>
+            
+                <div class="submit-button-flex-item">
+                    <div id="submit-circle" class="rotating-cirle smaller rotate-clockwise"> </div>
+                    <h1 class="top-flex-text smaller-text" id="submit-word">submit</h1>
+                </div>
+
+        </div>
+        
+            <!-- <div class="hiddenMenuBar"></div> -->
+        <!-- <div class="flash-in"></div> -->
+        <main class="editor-container"> 
+            <!-- <div class="divider" id='divider2'></div> -->
+            <div id="ace-editor"></div>
+            <!-- <div class="divider" id='divider2'></div> -->
+            <textarea readonly disabled id="output"></textarea>
         </main>
-    </div>
-    <script src="/javascript/loading.js"></script>
-    <script src="/javascript/apiKeys.js"></script> <!--private script file not included in repository-->
-    <script src = "/ace/ace.js"></script>
-    <script src="/ace/mode-javascript.js"></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="/javascript/querySelections.js"></script>
-    <script src="/javascript/apiCalls.js"></script>
-    <script src="/javascript/editor.js"></script>
-</body>
+
+        <script src="../javascript/loading.js"></script>
+        <script src = "../ace/ace.js"></script>
+        <script src="../ace/mode-python.js"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script src="../javascript/editor.js"></script>
+        <script src="../javascript/main.js"></script>
+    </body>
 </html>

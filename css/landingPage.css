@@ -1,34 +1,17 @@
-@font-face {
-  font-family: babapro;
-  src: url('/fonts/baba-pro-webfont/babapro-webfont.woff2') format('woff2'),
-        url('/fonts/baba-pro-webfont/babapro-webfont.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
 
-@font-face {
-  font-family: 'esqadero';
-  src: url('/fonts/esqadero/esqadero_ff_cy_4f-regular-webfont.woff2') format('woff2'),
-        url('fonts/esqadero/esqadero_ff_cy_4f-regular-webfont.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
 
-html {
-    height: 100%;
-}
-
-body {
-    width: 100%;
-    min-height: 100%;
+html, body {
+    min-height: 100vw;
+    min-width: 100vw;
+    margin: 0;
+    padding:0;
     overflow: hidden;
     background-color: black;
-    margin: 0;
     font-family: babapro;
     text-align: center;
     color: white;
-    padding:0;
 }
+
 
 /* #loader { 
   border: 12px solid #f3f3f3; 
@@ -41,14 +24,14 @@ body {
   top: 0; 
   bottom: 0; 
   left: 0; 
-  right: 0; 
+  right: 0;
   margin: auto; 
   visibility: visible;
 }  */
 
-.pageContent {
+/* .pageContent {
   visibility: hidden;
-}
+} */
 
 .theCore {
     display: block;
