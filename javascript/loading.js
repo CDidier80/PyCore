@@ -1,5 +1,7 @@
-console.log("loading.js is active")
-console.log(getComputedStyle(document.querySelector('.pageContent')))
+
+// require('dotenv').config()
+// console.log("loading.js is active")
+// console.log(getComputedStyle(document.querySelector('.pageContent')))
 
 // document.onreadystatechange = function() { page
 //     if (document.readyState !== "complete") { 
@@ -35,19 +37,19 @@ console.log(getComputedStyle(document.querySelector('.pageContent')))
 // }, 5000)
 
 
-window.onload = (event) => {
-    console.log('loaded')
+// window.onload = (event) => {
+//     console.log('loaded')
 
-    const loader = document.getElementById("loader")
-    const loaderStyle = getComputedStyle(loader)
+//     const loader = document.getElementById("loader")
+//     const loaderStyle = getComputedStyle(loader)
 
-    const pageContent = document.querySelector(".pageContent")
-    let pageContentStyle = getComputedStyle(pageContent)
+//     const pageContent = document.querySelector(".pageContent")
+//     let pageContentStyle = getComputedStyle(pageContent)
 
 
-    if(loaderStyle.getPropertyValue('visibility') === 'visible') {
-        loader.style.visibility = 'hidden'
-        pageContent.style.visibility = 'visible'
-    }
-}
+//     if(loaderStyle.getPropertyValue('visibility') === 'visible') {
+//         loader.style.visibility = 'hidden'
+//         pageContent.style.visibility = 'visible'
+//     }
+// }
 
