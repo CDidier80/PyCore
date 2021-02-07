@@ -14,7 +14,8 @@ const executeCode = async(userCode) => {
             clientSecret : API_CLIENT_SECRET
         }
         // console.log("Code sent to JDoodle: ", userCodePayload.script)
-        const response = await axios.post("https://cors-anywhere.herokuapp.com/" + API_COMPILER_ENDPOINT, userCodePayload)
+        // const response = await axios.post("https://cors-anywhere.herokuapp.com/" + API_COMPILER_ENDPOINT, userCodePayload)
+        const response = await axios.post(API_COMPILER_ENDPOINT, userCodePayload)
         // console.log("Response received from API: ", response)
         let codeOutput = response.data.output
         // console.log("Response.output received from API: ", codeOutput)
