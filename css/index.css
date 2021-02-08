@@ -1,0 +1,32 @@
+html, body {
+    min-height: 100vw;
+    min-width: 100vw;
+    margin: 0;
+    padding:0;
+    overflow: hidden;
+    background-color: black;
+    font-family: babapro;
+    text-align: center;
+    color: white;
+}
+
+.blue-text {
+    text-shadow:
+    0 0 6px rgba(202,228,225,0.98),
+    0 0 12px rgba(30,132,242,0.58),
+    0 0 22px rgba(30,132,242,0.84),
+    0 0 38px rgba(30,132,242,0.88),
+    0 0 60px rgba(30,132,242,1);
+    transition: all .4s;
+}
+
+.yellow-text {
+color: rgb(255, 255, 255);
+text-shadow:
+    0 0 5px rgba(228, 228, 202, 0.98),
+    0 0 10px rgba(238, 255, 0, 0.58),
+    0 0 17px rgba(238, 255, 0,0.84),
+    0 0 33px rgba(238, 255, 0,0.88),
+    0 0 50px rgba(238, 255, 0,1);
+transition: all .4s;
+}
