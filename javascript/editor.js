@@ -15,6 +15,14 @@ const executeCode = async(userCode) => {
     }
 }
 
+
+const errorCheck = (shellResponse) => (shellResponse.indexOf(`File "jdoodle.py"`) !== -1)
+
+
+function changeErrorMessage(shellResponse) {
+    let outputMessage = shellResponse.replace("jdoodle.py", "main.py")
+    return outputMessage
+}
 // const checkRequestCount = async() => {
 //     try{
 //         let = counterOptions = {
