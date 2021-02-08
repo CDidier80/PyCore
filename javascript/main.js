@@ -3,40 +3,92 @@ const submitCircle = document.querySelector("#submit-circle")
 const submitWord = document.querySelector("#submit-word")
 const output = document.querySelector("#output")
 const winSound = document.querySelector(".winSound")
+const surprise = document.querySelector(".surprise")
 
 
-function restoreSubmitDefault() {   
-    submitCircle.classList.toggle("clicked")
-    submitCircle.style.backgroundImage = 'url("../media/core.png")'
-    submitWord.classList.toggle('yellow-text')  
+
+async function simulateRequest() {
+    await new Promise(resolve => setTimeout(resolve, 1000))
+    return "simulated output"
 }
 
-submitButtonFlexItem.addEventListener('click', async () => {
+let awaitingAPI = false
+
+function yellowize(bool) {
+    if (bool){
+        submitCircle.classList.add('yellow-circle')
+        submitWord.classList.remove('blue-text')                         
+        submitWord.classList.add('yellow-text') 
+    } else {
+        submitCircle.classList.remove('yellow-circle')
+        submitWord.classList.remove('yellow-text')                         
+        submitWord.classList.add('blue-text')  
+    }
+}
+
+function setSubmitCircleSpeed(speed){
+    let baseClasses = "rotating-cirle smaller rotate-counter-clockwise"
+    submitCircle.classList.value = (`${baseClasses} ${speed}`)
+}
+
+
+function hoverSubmit(bool) {
+    if (awaitingAPI) return
+    if (bool){
+        setSubmitCircleSpeed("medium")
+        yellowize(true)
+    } else {
+        setSubmitCircleSpeed("slow")
+        yellowize(false)
+    }
+}
+
+submitCircle.addEventListener('mouseover', () => hoverSubmit(true))
+submitWord.addEventListener('mouseover', () => hoverSubmit(true))
+
+submitCircle.addEventListener('mouseout', () => hoverSubmit(false))      
+submitWord.addEventListener('mouseout', () => hoverSubmit(false))  
+
+
+function setSubmissionStyles(bool) {
+    if (bool){
+        awaitingAPI = true
+        setSubmitCircleSpeed("fast")
+        yellowize(true)
+    } else {
+        awaitingAPI = false
+        setSubmitCircleSpeed("slow")
+        yellowize(false)
+    }
+}
+
+
+async function submitCode() {
+    let modifiedShellResponse
     let code = editor.getValue()
     if (code === ""){
         output.value = "error: no code to execute"
         return
     }
+    setSubmissionStyles(true)
+    const jdoodleOutput = await executeCode(code)
+    const errorFound = errorCheck(jdoodleOutput)
+    if (errorFound) modifiedShellResponse = changeErrorMessage(jdoodleOutput)
 
-    submitCircle.classList.add('clicked')
+    // const response = await simulateRequest()
+    output.value = modifiedShellResponse ? modifiedShellResponse : jdoodleOutput
+    if (jdoodleOutput.indexOf("Lisa Wand") !== -1) {
+        console.log("yeah")
+        surprise.play()
+    } else {
+        winSound.play()
+    }
+    setSubmissionStyles(false)   
+}
 
-    const response = await executeCode(code)
-    output.value = response
-    winSound.play()
-    restoreSubmitDefault()   
-    return
-}) 
+submitButtonFlexItem.addEventListener('click', () => submitCode())
+submitWord.addEventListener('click', () => submitCode())
 
-
-submitCircle.addEventListener('mouseover', () => {
-    submitCircle.style.backgroundImage = 'url("../media/yellow-core.png")'
-    submitWord.classList.toggle('yellow-text')                         
-}) 
-
-submitCircle.addEventListener('mouseout', () => {
-    submitCircle.style.backgroundImage = 'url("../media/core.png")'
-    submitWord.classList.toggle('yellow-text')                         
-}) 
 
 // chooseCoreButton.addEventListener('click', (event) => {
 //     if (choose.innerText === "Choose") {

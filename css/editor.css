@@ -35,18 +35,6 @@ body {
     margin: auto; 
 } 
 
-/* 
-.flash-in {
-    display: none;
-    width: 85%;
-    margin: 60px auto 0 auto;
-    min-width: 600px;
-    min-height: 65vh;
-    background: rgb(255,255,255);
-    background: radial-gradient(circle, rgba(255,255,255,1), rgba(30,132,242,1));
-	-webkit-animation: flash-in 0.2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-	animation: flash-in 0.2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-} */
 
 main {
     /* display: none; */
