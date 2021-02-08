@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/index.css">
     <link rel="stylesheet" href="/css/topFlexbox.css">
     <link rel="stylesheet" href="/css/editor.css">
     <link rel="stylesheet" href="/css/fonts.css">
@@ -12,27 +13,32 @@
 
 
     <body>
+
         <audio class='winSound'>
             <source src="/media/winSound.mp3" type="audio/mp3">
+        </audio>
+        
+        <audio class='surprise'>
+            <source src="/media/wilhelmus.mp3" type="audio/mp3">
         </audio>
 
 
         <div class="editor-top-flexbox">
             
-                <div class="options-button-flex-item" id="options-flexitem">
-                    <div class="rotating-cirle smaller rotate-counter-clockwise"> </div>
-                    <h1 class="top-flex-text smaller-text  blue-text" id="options">options</h1>
-                </div>
-                
-                <div class="title-wrapper-flex-item" id="titleWrapper">
-                    <div class="rotating-cirle rotate-clockwise"> </div>
-                    <h1 class="top-flex-text pycore-header blue-text">PyCore</h1>
-                </div>
+            <div class="submit-button-flex-item">
+                <div id="submit-circle" class="rotating-cirle smaller rotate-clockwise slow"> </div>
+                <h1 class="top-flex-text smaller-text blue-text" id="submit-word">submit</h1>
+            </div>
             
-                <div class="submit-button-flex-item">
-                    <div id="submit-circle" class="rotating-cirle smaller rotate-clockwise"> </div>
-                    <h1 class="top-flex-text smaller-text" id="submit-word">submit</h1>
-                </div>
+            <div class="title-wrapper-flex-item" id="titleWrapper">
+                <div class="rotating-cirle rotate-clockwise slow"> </div>
+                <h1 class="top-flex-text pycore-header blue-text">PyCore</h1>
+            </div>
+            
+            <div class="options-button-flex-item" id="options-flexitem">
+                <div class="rotating-cirle smaller rotate-counter-clockwise slow"> </div>
+                <h1 class="top-flex-text smaller-text  blue-text" id="options">options</h1>
+            </div>
 
         </div>
         
