@@ -182,6 +182,7 @@
  * animation roll-in-blurred-top
  * ----------------------------------------
  */
+ 
 @-webkit-keyframes roll-in-blurred-top {
     0% {
       -webkit-transform: translateY(-800px) rotate(-720deg);
@@ -198,6 +199,7 @@
       opacity: 1;
     }
   }
+
   @keyframes roll-in-blurred-top {
     0% {
       -webkit-transform: translateY(-800px) rotate(-720deg);
@@ -221,6 +223,7 @@
  * animation roll-in-blurred-right
  * ----------------------------------------
  */
+
 @-webkit-keyframes roll-in-blurred-right {
     0% {
       -webkit-transform: translateX(1000px) rotate(720deg);
@@ -237,6 +240,8 @@
       opacity: 1;
     }
   }
+
+
   @keyframes roll-in-blurred-right {
     0% {
       -webkit-transform: translateX(1000px) rotate(720deg);
