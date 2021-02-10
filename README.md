@@ -2,7 +2,7 @@
 
 ### *by Collin Didier* 
 
-![landing page view](media/readmeImages/landingPageView.png)
+![landing page view](PyCore.gif)
 
 
 
