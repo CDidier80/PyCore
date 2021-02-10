@@ -3,39 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="/css/landingPage.css" rel="stylesheet">
     <link rel="stylesheet" href="/css/fonts.css">
-    <title>PyCore</title>
+    <link href="/css/landingPage.css" rel="stylesheet">
+    <!-- <title>PyCore</title> -->
 </head>
-<body>
-    <!-- <div id="loader"></div>  -->
-    <div class="pageContent">
-        <div class="theCore">
-            <h1 id='pycore' class='pycore'>PyCore</h1>
-            <h6 id="subtitle">Rapid-Fire Python Coding</h6>
-            <video loop muted autoplay>
-                <source src='/media/PyCoreVideo.mov'> 
-                <source src='/media/PyCoreVideo.mov' type="video/webm"> 
-                <source src='/media/PyCoreVideo.mov' type="video/mp4">
-                <source src='/media/PyCoreVideo.mov' type="video/ogg">  
-            </video>
+    <body>
+        <div class="glowing-orb" id="orb"></div>
+ 
+        <div class="text-flexbox">
+            <h1 class="core-text">pycore</h1>
+            <h6 id="subtitle">Python Cloud IDE</h6>
         </div>
-        <div class='threeCores'>
-            <div class="coreWrapper" id="speedWrapper">
-                <img class="lesserCore" src="/media/core.png" alt='core.png'/>
-                <h3 class="listItem" id="speed">Speed</h3>
-            </div>
-            <div class="coreWrapper" id="memoryWrapper"> 
-                <img class="lesserCore" src="/media/core.png" alt='core.png'/>
-                <h3 class="listItem" id="memory">Memory</h3>
-            </div>
-            <div class="coreWrapper" id="challengeWrapper"> 
-                <img class="lesserCore" src="/media/core.png" alt='core.png'/>
-                <h3 class="listItem" id="challenge">Challenge</h3>
-            </div>
+        
+        <main class="container">
+            <div class="pulse-wave" id="pulse"></div>
+        </main>
+         
+        <div class="begin-wrapper">
+            <a id="begin" href="/html/editor.html">Begin</a>
         </div>
-        <a id="begin" href="/html/editor.html">Begin</a>
-    </div>
-    <script src="javascript/loading.js"></script>
-</body>
+
+        <!-- <div class="pageContent">
+                <h1 id='pycore' class='pycore'>PyCore</h1>
+                <h6 id="subtitle">Rapid-Fire Python Coding</h6>
+            <a id="begin" href="/html/editor.html">Begin</a>
+        </div> -->
+        <script src="/javascript/landingPage.js"></script>
+
+    </body>
 </html>
