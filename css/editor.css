@@ -39,13 +39,14 @@ body {
 main {
     /* display: none; */
     width: 85%;
+    height: calc(90vh - 280px);
+    min-height: 315px;
     position: relative;
     display: flex;
     flex-direction: column;
     background-color: black;
     margin: 60px auto 0 auto;
     min-width: 600px;
-    min-height: 65vh;
 	-webkit-animation: fade-in 0.23s cubic-bezier(0.250, 0.460, 0.450, 0.940) .7s both;
 	        animation: fade-in 0.23s cubic-bezier(0.250, 0.460, 0.450, 0.940) .7s both;
     background-color: lightblue;
