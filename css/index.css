@@ -22,7 +22,6 @@
       0 0 31px rgba(30,132,242,0.78);
 }
 html, body {
-    min-height: 100vw;
     min-width: 100vw;
     margin: 0;
     padding:0;
