@@ -1,15 +1,3 @@
-html, body {
-    min-height: 100vw;
-    min-width: 100vw;
-    margin: 0;
-    padding:0;
-    overflow: hidden;
-    background-color: black;
-    font-family: babapro;
-    text-align: center;
-    color: white;
-}
-
 * {
     margin: 0;
     padding: 0;
@@ -32,6 +20,22 @@ html, body {
       0 0 11px rgba(30,132,242,0.52),
       0 0 19px rgba(30,132,242,0.92),
       0 0 31px rgba(30,132,242,0.78);
+}
+html, body {
+    min-height: 100vw;
+    min-width: 100vw;
+    margin: 0;
+    padding:0;
+    overflow-x: hidden;
+    background-color: black;
+    font-family: babapro;
+    text-align: center;
+    color: white;
+}
+
+body {
+  padding-bottom: 23px;
+  box-sizing: border-box;
 }
 
 .blue-text {
