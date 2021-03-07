@@ -5,9 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/fonts.css">
     <link href="/css/landingPage.css" rel="stylesheet">
+    <script src="https://code.createjs.com/easeljs-0.7.1.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js"></script>
     <!-- <title>PyCore</title> -->
 </head>
     <body>
+
+        <canvas id="projector"> </canvas>
+
         <div class="glowing-orb" id="orb"></div>
  
         <div class="text-flexbox">
@@ -23,12 +28,8 @@
             <a id="begin" href="/html/editor.html">Begin</a>
         </div>
 
-        <!-- <div class="pageContent">
-                <h1 id='pycore' class='pycore'>PyCore</h1>
-                <h6 id="subtitle">Rapid-Fire Python Coding</h6>
-            <a id="begin" href="/html/editor.html">Begin</a>
-        </div> -->
-        <script src="/javascript/landingPage.js"></script>
 
+        <script src="/javascript/particles.js"></script>
+        <script src="/javascript/landingPage.js"></script>
     </body>
 </html>
