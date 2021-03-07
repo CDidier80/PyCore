@@ -1,6 +1,8 @@
 const container = document.querySelector(".container")
+
 const toPixels = (number) => `${number}px`
-setTimeout( () => {
+
+setTimeout(() => {
   let pulseWave = document.querySelector("#pulse")
   let glowingOrb = document.querySelector("#orb")
   pulseWave.remove()
@@ -24,11 +26,11 @@ const createBlueCircle = (args) => {
     blueCircle.classList.add("core")
     blueCircle.style.width = blueCircle.style.height = toPixels(diameter)
     if (sliver) {
-      blueCircle.classList.add(sliver)
-      setTimeout( () => {
-          blueCircle.classList.remove(sliver)
-          blueCircle.style.animation = `${animation} ${seconds}s linear infinite`
-      }, 5500);
+        blueCircle.classList.add(sliver)
+        setTimeout( () => {
+            blueCircle.classList.remove(sliver)
+            blueCircle.style.animation = `${animation} ${seconds}s linear infinite`
+        }, 5500);
     } else {
       blueCircle.style.animation = `${animation} ${seconds}s linear infinite`
     }
@@ -44,7 +46,7 @@ const createBlueCircle = (args) => {
 }
 
 
-const createSliceGradient = (tsPx, sliceColor, gradientStartPx, widthPx) => {
+const makeSliceGradient = (tsPx, sliceColor = "rgba(0,0,0,0)", gradientStartPx, widthPx) => {
     const gradientConstant = `radial-gradient(circle, rgba(0,0,0,0) 0px, rgba(0,0,0,0) ${tsPx}, `
     const visibleGradientStart = `${sliceColor} ${gradientStartPx}, `
     const gradientEnd = `${sliceColor} ${widthPx})`
@@ -53,7 +55,7 @@ const createSliceGradient = (tsPx, sliceColor, gradientStartPx, widthPx) => {
 }
 
 
-const generateSlices = (args) => {
+const makeSlices = (args) => {
   
     const {       
         sliceHeight: height, 
@@ -77,7 +79,7 @@ const generateSlices = (args) => {
         slice.style.transform  = `rotate(${nextAngle + angleIncrement}deg)`
         slice.style.width      = toPixels(width)
         slice.style.height     = toPixels(height)
-        slice.style.background = createSliceGradient(tsPx, sliceColor, gradientStartPx, widthPx)
+        slice.style.background = makeSliceGradient(tsPx, sliceColor, gradientStartPx, widthPx)
         slices.push(slice)
         nextAngle += angleIncrement
     }
@@ -87,14 +89,9 @@ const generateSlices = (args) => {
 
 
 const createCore = (args) => {
-
     const core = createBlueCircle((args.forBlueCircle))
-    const slices = generateSlices((args.forSlices))
-    
-    slices.forEach(slice => {
-        core.appendChild(slice)
-    })
-  
+    const slices = makeSlices((args.forSlices))
+    slices.forEach(slice => core.appendChild(slice))
     container.appendChild(core)
 }
 
@@ -175,7 +172,7 @@ const cores = [
       },
       
       forSlices: {
-          sliceColor: "rgba(0,0,0,1)",
+        //   sliceColor: "rgba(0,0,0,1)",
           transparencyStop: 372,
           sliceWidth: 670,
           sliceHeight: 15,
@@ -260,7 +257,7 @@ const cores = [
       },
       
       forSlices: {
-          sliceColor: "rgba(0,0,0,1)",
+          sliceColor: "rgba(0,0,0,.55)",
           transparencyStop: 328,
           sliceWidth: 670,
           sliceHeight: 15,
@@ -300,7 +297,7 @@ const cores = [
       },
 
       forSlices: {
-          sliceColor: "rgba(0,0,0,.3)",
+          sliceColor: "rgba(0,0,0,.16)",
           transparencyStop: 298,
           sliceWidth: 670,
           sliceHeight: 30,
