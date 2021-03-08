@@ -1,3 +1,4 @@
+
 let ParticleEngine = (function() {
 	'use strict'
 
@@ -13,14 +14,22 @@ let ParticleEngine = (function() {
          * ==============================
          */
 
-		this.canvas_id = canvas_id
-		this.stage  = new createjs.Stage(canvas_id)
-    this.canvas = document.getElementById(canvas_id)
-		this.totalWidth  = this.canvasWidth  = this.canvas.width  = this.canvas.offsetWidth
-		this.totalHeight = this.canvasHeight = this.canvas.height = this.canvas.offsetHeight
+    this.canvas = document.createElement('canvas')
+    this.canvas.id = canvas_id
+		this.stage  = new createjs.Stage(this.canvas)
+    // this.canvas = document.getElementById(canvas_id)
+    this.canvas.width = window.innerWidth
+    this.canvas.height = window.innerHeight
+		this.totalWidth  = this.canvasWidth  = this.canvas.width  = this.canvas.width
+		this.totalHeight = this.canvasHeight = this.canvas.height = this.canvas.height
+		// this.totalWidth  = this.canvasWidth  = this.canvas.width  = this.canvas.offsetWidth
+		// this.totalHeight = this.canvasHeight = this.canvas.height = this.canvas.offsetHeight
     this.xCenterPoint = this.totalWidth / 2,
     this.yCenterPoint = this.totalHeight / 2, 
-    this.firstbigBang = true,
+    this.firstbigBang = true
+    // this.circleWaypoints = 360
+    // this.radianIncrement = Math.PI * 2 / this.circleWaypoints
+    // this.incrementInRadians = this.angleIncrement * Math.PI / 180
 
     /**
          * ==========================================================================
@@ -42,52 +51,30 @@ let ParticleEngine = (function() {
          */
         
 
-    this.particleArray = []
-
-    // this.xCentralizedChance = .6
-    // this.yCentralizedChance = .8
-    this.xCentralizedChance = .5
-    this.yCentralizedChance = .5
-
-    this.centralizedParticleRange = {
-      x: {
-        setMinPosition: (baseXCoordinate) => baseXCoordinate + ((this.totalWidth - baseXCoordinate) / 4), 
-        setMaxPosition: (baseXCoordinate) => baseXCoordinate + ((this.totalWidth - baseXCoordinate) * .75),
-      },
-
-      y: {
-        setMinPosition: (areaHeight) => this.totalHeight * (2 - (areaHeight / 2)) / 4,
-        setMaxPosition: (areaHeight) => this.totalHeight * (2 + (areaHeight / 2)) / 4,
-      }
-    }
-        
+    this.particleArray = []  
     
 		this.particleTypes = [
       /* many small, hollow particles */
         { 
           forParticleInstance: {
-            yMovementRange: this.totalHeight,
-            xMovementRange: this.totalWidth,
             particleColor: "#0cdbf3",
             baseXCoordinate: 0,
             baseYCoordinate: 0,
-            travelDistance: 40,  
+            travelDistance: 60,  
             particleWidth: 3,   
             areaHeight: .5, 
             alphaMax: 0.4, 
             blur: false, 
           },
-          particleCount: 170, 
+          particleCount: 150, 
           id: "small",  
         }, 
         { 
           forParticleInstance: {
-            yMovementRange: this.totalHeight,
-            xMovementRange: this.totalWidth,
             particleColor: "#00D5FF",
             baseXCoordinate: 0,
             baseYCoordinate: 0,
-            travelDistance: 40,  
+            travelDistance: 50,  
             particleWidth: 3,   
             areaHeight: .5, 
             alphaMax: 0.4, 
@@ -97,12 +84,9 @@ let ParticleEngine = (function() {
           id: "small",  
         }, 
 
-        /* several medium, blured particles */
+        // /* several medium, blured particles */
         { 
           forParticleInstance: {
-            yMovementRange: this.totalHeight,
-            xMovementRange: this.totalWidth,
-            // particleColor: "#6fd2f3", 
             particleColor: "#0cdbf3",
             travelDistance: 70,  
             baseXCoordinate: 0,
@@ -112,26 +96,23 @@ let ParticleEngine = (function() {
             alphaMax: 0.3, 
             blur: true,  
           },
-          particleCount: 80, 
+          particleCount: 35, 
           id: "medium", 
         }, 
 
-        /* a few large, blured particles */
+        // /* a few large, blured particles */
         { 
           forParticleInstance: {
-            yMovementRange: this.totalHeight,  
-            xMovementRange: this.totalWidth,
             particleColor: "#93e9f3",
-            // particleColor: "#93e9f3",
-            travelDistance: 125, 
+            travelDistance: 150, 
             baseXCoordinate: 0,
             baseYCoordinate: 0, 
             particleWidth: 23,  
             areaHeight: 1,  
-            alphaMax: .15, 
+            alphaMax: .1, 
             blur: true,  
           },
-          particleCount: 6,  
+          particleCount: 5,  
           id: "large",  
         }
     ]
@@ -141,7 +122,7 @@ let ParticleEngine = (function() {
          * ============================================================ *
          *                         makeParticles
          *
-         * - uses the below particle methods to fully instantiate &
+         * - uses the below methods to fully instantiate &
          *.  configure the particles
          * ============================================================ *
          */                                                                          
@@ -158,12 +139,10 @@ let ParticleEngine = (function() {
               let particle = new createjs.Shape()
               this.addStaticProperties(particle, forParticleInstance, id)
               this.addRandomizedProperties(particle)
+              this.precalculateDestinations(particle)
+              // this.plotCircularPath(particle)
               this.drawParticle(particle)
-              // this.setInitialParticlePosition(particle)
-              particle.initX = particle.x = this.xCenterPoint
-              particle.initY = particle.y = this.yCenterPoint
               this.stage.addChild(particle)
-              setTimeout(()=>bigBang(particle), 3800)
               this.particleArray.push(particle)
             }
         })	
@@ -179,6 +158,8 @@ let ParticleEngine = (function() {
 
         this.addStaticProperties = function(particle, forParticleInstance, id) {
             particle.flag = id
+            particle.x = this.totalWidth / 2
+            particle.y = this.totalHeight / 2
             for (let key in forParticleInstance) {
                 particle[key] = forParticleInstance[key]
             }
@@ -188,7 +169,53 @@ let ParticleEngine = (function() {
         this.addRandomizedProperties = function(particle) {
             particle.scaleX = particle.scaleY = randomizeWithinRange(0.3, 1)
             particle.alpha = randomizeWithinRange(0, 0.1)
-            particle.speed = randomizeWithinRange(2, 10)
+            particle.speed = randomizeWithinRange(4, 10)
+            particle.bigBangSpeed = randomizeWithinRange(1, 4.5)
+            particle.xExplosionDestination = randomizeWithinRange(0, this.totalWidth)
+            particle.yExplosionDestination = randomizeWithinRange(0, this.totalHeight)
+            particle.endScale = randomizeWithinRange(0.3, 1)
+            // particle.clockwiseOrbit = Math.random() < .8 ? true : false
+        }
+
+
+        this.precalculateDestinations = function(particle){
+            const { xExplosionDestination: x, yExplosionDestination: y, travelDistance} = particle
+            const firstX = randomizeWithinRange(x - travelDistance, x + travelDistance)
+            const firstY = randomizeWithinRange(y - travelDistance, y + travelDistance)
+            let destinations = [[firstX, firstY]]
+            for (let i=1; i<=15; i++){
+                const prevX = destinations[i-1][0]
+                const prevY = destinations[i-1][1]
+                const [nextX, nextY] = makeRandomCoordinates(prevX, prevY, travelDistance)
+                destinations.push([nextX, nextY])
+            }
+            particle.destinations = destinations.concat([...destinations].reverse())
+            particle.moveCount = 0
+        }
+
+
+        // this.plotCircularPath = function(particle){
+        //     const { xExplosionDestination: x, yExplosionDestination: y, clockwiseOrbit} = particle
+        //     let xFromCenter = (x - this.xCenterPoint )
+        //     let yFromCenter = (y - this.yCenterPoint )
+        //     const radius = Math.hypot(yFromCenter, xFromCenter)
+        //     const angle  = Math.atan2(yFromCenter, xFromCenter)
+            
+        //     let [nextX, nextY] = this.findNextCircleCoordinates(radius, angle)
+        //     let circleDestinations = []
+        //     for (let i = 1; i <= this.circleWaypoints; i++) {
+        //         [nextX, nextY] = this.findNextCircleCoordinates(radius, angle + (this.radianIncrement * i * (clockwiseOrbit ? 1 : -1)))
+        //         circleDestinations.push([nextX, nextY])
+        //     }
+        //     particle.circleDestinations = circleDestinations
+        //     particle.orbitalSpeed = .0000002 * radius * radius
+        // }
+
+
+        this.findNextCircleCoordinates = function(radius, angle){
+            const nextX = Math.cos(angle) * radius + this.xCenterPoint
+            const nextY = Math.sin(angle) * radius + this.yCenterPoint
+            return [nextX, nextY]
         }
 
 
@@ -215,121 +242,72 @@ let ParticleEngine = (function() {
         }
 
 
-        this.setCentralCoordinate = function(axis, base) {
-            const { setMinPosition, setMaxPosition } = this.centralizedParticleRange[axis]
-            const minPosition = setMinPosition(base)
-            const maxPosition = setMaxPosition(base)
-            return randomizeWithinRange(minPosition, maxPosition)
-        }
-
-      // this.setPostExplosionPosition = function(particle){
-
-      //     const { 
-      //       baseXCoordinate, 
-      //       baseYCoordinate,
-      //       xMovementRange, 
-      //       yMovementRange,  
-      //       areaHeight, 
-      //   } = particle
-
-      //   const args = [baseXCoordinate, xMovementRange, baseYCoordinate, yMovementRange, areaHeight]
-      //   args.forEach(arg => setZeroIfFalsey(arg)) 
-
-      //   const xNearCenter = Math.random() <= this.xCentralizedChance
-      //   const yNearCenter = Math.random() <= this.yCentralizedChance
-
-      //     particle.initX = particle.x = xNearCenter ? 
-      //         this.setCentralCoordinate("x", baseXCoordinate) :
-      //         randomizeWithinRange(baseXCoordinate, xMovementRange)
-
-      //     particle.initY = particle.y = yNearCenter ? 
-      //         this.setCentralCoordinate("y", areaHeight) :
-      //         randomizeWithinRange(baseYCoordinate, yMovementRange)
-            
-      //   }
-
-
-		this.setInitialParticlePosition = function(particle) {
-
-        const { 
-            baseXCoordinate, 
-            baseYCoordinate,
-            xMovementRange, 
-            yMovementRange,  
-            areaHeight, 
-        } = particle
-
-        const args = [baseXCoordinate, xMovementRange, baseYCoordinate, yMovementRange, areaHeight]
-        args.forEach(arg => setZeroIfFalsey(arg)) 
-
-        // const xNearCenter = Math.random() <= this.xCentralizedChance
-        // const yNearCenter = Math.random() <= this.yCentralizedChance
-
-        // if(this.firstbigBang){
-
-        // } else {
-        //   particle.initX = particle.x = xNearCenter ? 
-        //       this.setCentralCoordinate("x", baseXCoordinate) :
-        //       randomizeWithinRange(baseXCoordinate, xMovementRange)
-
-        //   particle.initY = particle.y = yNearCenter ? 
-        //       this.setCentralCoordinate("y", areaHeight) :
-        //       randomizeWithinRange(baseYCoordinate, yMovementRange)
-        // }
-		}
-
         /**
          * ==============================================
          *            Particle Animations
-         * 
-         *  Each particle endlessly cycles between
-         *  the "animateParticle" and "fadeout" animations
          * ==============================================
          */
 
-    const bigBang = function(particle) {
-        const { speed, initX, initY, travelDistance, alphaMax } = particle
-        let endScale = randomizeWithinRange(0.3, 1);
-        let xDestination = randomizeWithinRange(engine.xCenterPoint - travelDistance * 15, engine.xCenterPoint + travelDistance * 15)
-        let yDestination = randomizeWithinRange(engine.yCenterPoint - travelDistance * 15, engine.yCenterPoint + travelDistance * 5)
-        const greaterAlpha = randomizeWithinRange(0.1, alphaMax)
+    const scatterParticle = function(particle) {
+        const { 
+          endScale,
+          alphaMax,
+          bigBangSpeed, 
+          yExplosionDestination, 
+          xExplosionDestination, 
+        } = particle
 
         const endExplosionState = { 
           scaleX: endScale, 
           scaleY: endScale, 
-          x: xDestination, 
-          y: yDestination, 
+          x: xExplosionDestination, 
+          y: yExplosionDestination, 
           ease: Cubic.easeInOut,
           onComplete: animateParticle, 
           onCompleteParams:[particle], 
-          alpha: greaterAlpha, 
+          // onComplete: enterOrbit, 
+          // onCompleteParams:[particle], 
+          alpha: alphaMax, 
         }
-        TweenMax.to(particle, speed, {...endExplosionState})
+        TweenMax.to(particle, bigBangSpeed, {...endExplosionState})
     }
 
+
+    // const enterOrbit = function(particle) {
+    //     const {circleDestinations, orbitalSpeed} = particle
+    //     let orbitalTimeline = gsap.timeline({repeat: -1, smoothChildTiming: true, ease: Power4.easeInOut})
+    //     for (let i=0; i<circleDestinations.length; i++){
+    //         orbitalTimeline.to(particle, orbitalSpeed * (1 + (i/circleDestinations.length)), {x: circleDestinations[i][0] , y: circleDestinations[i][1]})
+    //     }
+    // }
+
+
 		const animateParticle = function(particle) {
-        const { speed, initX, initY, travelDistance, alphaMax, x, y } = particle
-        // if (initX === engine.xCenterPoint || initY === engine.yCenterPoint) {
-        //   engine.setPostExplosionPosition(particle)
-
-        // }
+        const { speed, alphaMax, destinations, moveCount } = particle
         let endScale = randomizeWithinRange(0.3, 1);
-        let xDestination = randomizeWithinRange(x - travelDistance, x + travelDistance)
-        let yDestination = randomizeWithinRange(y - travelDistance, y + travelDistance)
         const greaterAlpha = randomizeWithinRange(0.1, alphaMax)
+        const shouldCountReset = moveCount === destinations.length - 1
 
-        const firstEndState = { 
-          scaleX: endScale, 
-          scaleY: endScale, 
-          x: xDestination, 
-          y: yDestination, 
-          ease: Cubic.easeInOut,
+        const endState = { 
+          moveCount: shouldCountReset ? 0 : moveCount + 1,
+          y: destinations[moveCount][1], 
+          x: destinations[moveCount][0], 
           onComplete: animateParticle, 
           onCompleteParams:[particle], 
+          ease: Cubic.easeInOut,
           alpha: greaterAlpha, 
+          scaleX: endScale, 
+          scaleY: endScale, 
         }
-        TweenMax.to(particle, speed, {...firstEndState})	
-		}	
+        TweenMax.to(particle, speed, {...endState})	
+		}
+	
+
+    this.bigBang = function(){
+      this.particleArray.forEach(particle => scatterParticle(particle))
+    }
+
+
 
         
 		// function fadeout(particle, speed) {
@@ -353,10 +331,10 @@ let ParticleEngine = (function() {
     } 
 
     this.resize = function() {
-        this.totalWidth  = this.canvasWidth  = this.canvas.width = this.canvas.offsetWidth
-        this.totalHeight = this.canvasHeight = this.canvas.height = this.canvas.offsetHeight
+        this.totalWidth  = this.canvasWidth  = this.canvas.width = window.innerWidth
+        this.totalHeight = this.canvasHeight = this.canvas.height = window.innerHeight
         this.render()
-        this.particleArray.forEach(particle => this.setInitialParticlePosition(particle))
+        // this.particleArray.forEach(particle => this.setInitialParticlePosition(particle))
     }
 
 		this.makeParticles()
@@ -365,9 +343,10 @@ let ParticleEngine = (function() {
         this.render()
     }
 
+
  }
  return ParticleEngine
-}());
+}())
 
 
 /**
@@ -378,6 +357,16 @@ let ParticleEngine = (function() {
 const randomizeWithinRange = (min, max) => min + ((max - min) * Math.random())
 
 
+const makeRandomCoordinates = (xStart, yStart, travelDistance) => {
+    const nextX = randomizeWithinRange(xStart - travelDistance, xStart + travelDistance)
+    const nextY = randomizeWithinRange(yStart - travelDistance, yStart + travelDistance)
+    return [nextX, nextY]
+}
+
+const findHypotenuse = (x, y) => Math.sqrt((x * x) + (y * y))
+
+const toDegrees = (radians) => radians * (180 / Math.PI)
+
 const setZeroIfFalsey = (variable) => !variable && (variable = 0)
 
 
@@ -387,15 +376,24 @@ const setZeroIfFalsey = (variable) => !variable && (variable = 0)
  * =======================================================
  */
 
-let particles
+
 
 const activateParticles = () => {
-  console.log("running")
-    particles = new ParticleEngine('projector')
+    const particles = new ParticleEngine('projector')
     createjs.Ticker.addEventListener("tick", updateCanvas)
     window.addEventListener('resize', resizeCanvas)
     function updateCanvas(){particles.render()}
     function resizeCanvas(){particles.resize()}
+    return particles
 }
 
-activateParticles()
+const particles = activateParticles()
+
+
+const addCanvas = () => {
+  console.log(particles.canvas)
+    document.body.prepend(particles.canvas)
+    // particles.render()
+    console.log(document.body)
+}
+
