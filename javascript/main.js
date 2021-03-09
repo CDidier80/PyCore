@@ -1,9 +1,8 @@
 const submitButtonFlexItem = document.querySelector('.submit-button-flex-item')
 const submitCircle = document.querySelector("#submit-circle")
 const submitWord = document.querySelector("#submit-word")
-const output = document.querySelector("#output")
 const winSound = document.querySelector(".winSound")
-const surprise = document.querySelector(".surprise")
+const output = document.querySelector("#output")
 
 // async function simulateRequest() {
 //     await new Promise(resolve => setTimeout(resolve, 1000))
