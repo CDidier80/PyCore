@@ -5,15 +5,7 @@ let ParticleEngine = (function() {
 	function ParticleEngine(canvas_id) {
 		// enforces new
 		if (!(this instanceof ParticleEngine)) return new ParticleEngine(args)
-    const engine = this
 		
-        
-    /**
-         * ==============================
-         *     Set Canvas & Stage
-         * ==============================
-         */
-
     this.canvas = document.createElement('canvas')
     this.canvas.id = canvas_id
 		this.stage  = new createjs.Stage(this.canvas)
@@ -30,26 +22,6 @@ let ParticleEngine = (function() {
     // this.circleWaypoints = 360
     // this.radianIncrement = Math.PI * 2 / this.circleWaypoints
     // this.incrementInRadians = this.angleIncrement * Math.PI / 180
-
-    /**
-         * ==========================================================================
-         *                        CREATE PARTICLE SETTINGS
-         * 
-         *  - particles are placed near canvas center OR randomly across the canvas 
-         *    according to a percentage chance 
-         * 
-         *  - if a particle is assigned to the center, it's range of motion
-         *    is tightly restricted to maintain particle density
-         * 
-         *  - higher chance of x-axis centralization causes a more vertical particle 
-         *    dispersion
-         * 
-         *  - higher chance of y-axis centralization causes more horizontal particle
-         *    dispersion
-         * 
-         * ==========================================================================
-         */
-        
 
     this.particleArray = []  
     
@@ -117,17 +89,6 @@ let ParticleEngine = (function() {
         }
     ]
 
-
-        /**
-         * ============================================================ *
-         *                         makeParticles
-         *
-         * - uses the below methods to fully instantiate &
-         *.  configure the particles
-         * ============================================================ *
-         */                                                                          
-
-		
 		this.makeParticles = function() {
         this.particleTypes.forEach(particleType => {
             const {                
@@ -147,14 +108,6 @@ let ParticleEngine = (function() {
             }
         })	
 		 }
-
-
-        /**
-         * ==============================================
-         *        particle configuration methods 
-         * ==============================================
-         */
-
 
         this.addStaticProperties = function(particle, forParticleInstance, id) {
             particle.flag = id
@@ -242,12 +195,6 @@ let ParticleEngine = (function() {
         }
 
 
-        /**
-         * ==============================================
-         *            Particle Animations
-         * ==============================================
-         */
-
     const scatterParticle = function(particle) {
         const { 
           endScale,
@@ -307,9 +254,6 @@ let ParticleEngine = (function() {
       this.particleArray.forEach(particle => scatterParticle(particle))
     }
 
-
-
-        
 		// function fadeout(particle, speed) {
 		// 	particle.speed = randomizeWithinRange(2, 10)
     //   const endState = {
@@ -320,11 +264,6 @@ let ParticleEngine = (function() {
 		// 	TweenMax.to(particle, speed / 2, endState)
 		// }
 
-        /**
-         * =========================================
-         *            Render & Resize
-         * =========================================
-         */
 
     this.render = function() {
        this.stage.update()
@@ -349,13 +288,7 @@ let ParticleEngine = (function() {
 }())
 
 
-/**
- *                      HELPERS
- * =======================================================
- */
-
 const randomizeWithinRange = (min, max) => min + ((max - min) * Math.random())
-
 
 const makeRandomCoordinates = (xStart, yStart, travelDistance) => {
     const nextX = randomizeWithinRange(xStart - travelDistance, xStart + travelDistance)
@@ -370,14 +303,6 @@ const toDegrees = (radians) => radians * (180 / Math.PI)
 const setZeroIfFalsey = (variable) => !variable && (variable = 0)
 
 
-/**
- * =======================================================
- *                      RUN CODE
- * =======================================================
- */
-
-
-
 const activateParticles = () => {
     const particles = new ParticleEngine('projector')
     createjs.Ticker.addEventListener("tick", updateCanvas)
@@ -388,12 +313,3 @@ const activateParticles = () => {
 }
 
 const particles = activateParticles()
-
-
-const addCanvas = () => {
-  console.log(particles.canvas)
-    document.body.prepend(particles.canvas)
-    // particles.render()
-    console.log(document.body)
-}
-
