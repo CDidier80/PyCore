@@ -5,12 +5,10 @@ const output = document.querySelector("#output")
 const winSound = document.querySelector(".winSound")
 const surprise = document.querySelector(".surprise")
 
-
-
-async function simulateRequest() {
-    await new Promise(resolve => setTimeout(resolve, 1000))
-    return "simulated output"
-}
+// async function simulateRequest() {
+//     await new Promise(resolve => setTimeout(resolve, 1000))
+//     return "simulated output"
+// }
 
 let awaitingAPI = false
 
