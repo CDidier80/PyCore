@@ -32,7 +32,6 @@ body {
 } 
 
 main {
-    /* display: none; */
     width: 85%;
     height: calc(90vh - 280px);
     min-height: 315px;
@@ -63,7 +62,7 @@ main {
     flex-grow: 1;
 }
 
-#output {
+#terminal {
     resize: none;
     /* height: 300px; */
     font-size: 14px;
