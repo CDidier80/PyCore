@@ -33,7 +33,6 @@ const createBlueCircle = (args) => {
         blueCircle.classList.add("box-shadow")
         blueCircle.classList.add(`${boxShadow}`)
     }
-  
     return blueCircle
 }
 
@@ -89,7 +88,6 @@ const createCore = (args) => {
 
 
 let cores = [
-  
    // thin, blue, long, protruding lines
    {      
       forBlueCircle: {
@@ -213,8 +211,6 @@ let cores = [
       }
   },
   
-  
-  
   // inner blue right slow
   {      
       forBlueCircle: {
@@ -233,9 +229,7 @@ let cores = [
           sliceHeight: 30,
           sliceCount: 14,
       }
-  },
-  
-
+    },
   
   // outermost-white, thick, fast, rightward, outer
     {      
@@ -301,20 +295,3 @@ let cores = [
 
 cores.forEach(core => createCore(core))
 cores = null
-
-// document.addEventListener('DOMContentLoaded', () => {
-//     const container = document.querySelector(".container")
-//     const pulseWave = document.querySelector("#pulse")
-//     const glowingOrb = document.querySelector("#orb")
-
-//     // pulseWave.addEventListener("animationstart", () => particles.bigBang())
-//     pulseWave.addEventListener("animationend",   () => pulseWave.remove())
-//     glowingOrb.addEventListener("animationend",  () => particles.bigBang(), () => glowingOrb.remove())
-    
-//     coresAwaitingDOM.forEach(core => {
-//         container.appendChild(core)
-//     })
-// })
-    
-
-// cores.forEach(core => createCore(core))

@@ -10,38 +10,24 @@
     <link rel="stylesheet" href="/css/fonts.css">
     <title>PyCore</title>
 </head>
-
-
     <body>
-
         <audio class='winSound'>
             <source src="/media/winSound.mp3" type="audio/mp3">
         </audio>
-        
-        <audio class='surprise'>
-            <source src="/media/wilhelmus.mp3" type="audio/mp3">
-        </audio>
-
-
         <div class="editor-top-flexbox">
-            
             <div class="submit-button-flex-item">
                 <div id="submit-circle" class="rotating-cirle smaller rotate-clockwise slow"> </div>
                 <h1 class="top-flex-text smaller-text blue-text" id="submit-word">submit</h1>
             </div>
-            
             <div class="title-wrapper-flex-item" id="titleWrapper">
                 <div class="rotating-cirle rotate-clockwise slow"> </div>
                 <h1 class="top-flex-text pycore-header blue-text">PyCore</h1>
             </div>
-            
             <div class="options-button-flex-item" id="options-flexitem">
                 <div class="rotating-cirle smaller rotate-counter-clockwise slow"> </div>
                 <h1 class="top-flex-text smaller-text  blue-text" id="options">options</h1>
             </div>
-
         </div>
-        
             <!-- <div class="hiddenMenuBar"></div> -->
         <!-- <div class="flash-in"></div> -->
         <main class="editor-container"> 
@@ -50,7 +36,6 @@
             <!-- <div class="divider" id='divider2'></div> -->
             <textarea readonly disabled id="output"></textarea>
         </main>
-
         <script src = "../ace/ace.js"></script>
         <script src="../ace/mode-python.js"></script>
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
