@@ -32,7 +32,6 @@ body {
 } 
 
 main {
-    /* display: none; */
     width: 85%;
     height: calc(90vh - 280px);
     min-height: 315px;
@@ -44,26 +43,26 @@ main {
     min-width: 600px;
 	-webkit-animation: fade-in 0.23s cubic-bezier(0.250, 0.460, 0.450, 0.940) .7s both;
 	        animation: fade-in 0.23s cubic-bezier(0.250, 0.460, 0.450, 0.940) .7s both;
-    background-color: lightblue;
-    box-shadow: 
+    background-color: rgba(173, 216, 230, 0);
+    /* box-shadow: 
         0 0 4px rgba(202,228,225,0.98),
         0 0 10px rgba(30,132,242,0.58),
         0 0 18px rgba(30,132,242,0.84),
         0 0 30px rgba(30,132,242,0.88),
-        0 0 40px rgba(30,132,242,1);
+        0 0 40px rgba(30,132,242,1); */
 }
 
 #ace-editor {
     /* height: 300px; */
-    border-bottom: 2px solid black;
-    border-left: 1px solid black;
-    border-right: 1px solid black;
+    /* border-bottom: 2px solid black; */
+    /* border-left: 1px solid black;
+    border-right: 1px solid black; */
     /* font-family: "Menlo"; */
-    font-size: 14px;
-    flex-grow: 1;
+    /* font-size: 14px;
+    flex-grow: 1; */
 }
 
-#output {
+#terminal, #ace-editor {
     resize: none;
     /* height: 300px; */
     font-size: 14px;
@@ -71,7 +70,7 @@ main {
     padding: 0;
     margin: 0;
     border-top: 1px solid black;
-    border: solid rgb(2, 17, 99) 1px;
+    /* border: solid rgb(2, 17, 99) 1px; */
     background: rgb(227,248,255);
     background: 
         radial-gradient(
@@ -80,7 +79,56 @@ main {
             rgb(161, 163, 216) 100%
         );
     flex-grow: 1;
+    background: rgba(227, 248, 255, 0);
+    color: #99e2f8;
+    box-shadow: 
+        0 0 4px rgba(202,228,225,0.98),
+        0 0 10px rgba(30,132,242,0.58),
+        0 0 18px rgba(30,132,242,0.84),
+        0 0 24px rgba(30,132,242,0.88),
+        0 0 28px rgba(30,132,242,1);
 }
+
+#ace-editor {
+    margin-bottom: 30px;
+}
+/* #terminal > .ace_gutter, #terminal > .ace_gutter_cell {
+    background: rgba(0, 0, 0, 0)!important;
+    color: #99e2f8!important;
+}
+
+#terminal * .ace_gutter-active-line {
+    background-color: rgb(62, 63, 114)!important;
+}
+
+#terminal * .ace_hidden-cursors {
+    opacity:0
+} 
+*/
+
+#terminal * .ace_gutter-layer{
+    color: rgb(112, 245, 255);
+} 
+
+.ace_gutter, #terminal > .ace_gutter_cell {
+    background: rgba(0, 0, 0, 0)!important;
+    color: #99e2f8!important;
+}
+
+.ace_gutter-active-line, .ace_active-line {
+    background-color: rgba(4, 37, 75, 0.74)!important;
+}
+
+.ace_hidden-cursors {
+    opacity:0
+} 
+
+
+.ace_gutter-layer{
+    color: rgb(112, 245, 255);
+}
+
+
 
 .testing {
     color: yellow;
