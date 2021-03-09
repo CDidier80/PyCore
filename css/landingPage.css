@@ -7,9 +7,7 @@ html, body {
   margin: 0;
 }
 
-
 /** 
-* ----------------------------------------
 * CENTRAL, GLOWING ORB AT ANIMATION START
 * ----------------------------------------
 */
@@ -27,10 +25,10 @@ html, body {
     width: 100px;
     background: radial-gradient(
       ellipse, 
-        rgba(255,255,255, 1)   8%, 
-        rgba(255,255,255, .97) 15%, 
-        rgba(203, 253, 255, 0.95)  40%, 
-        rgba(171, 252, 255, 0.91)  60%,
+        rgba(255,255,255, 1)      8%, 
+        rgba(255,255,255, .97)    15%, 
+        rgba(203, 253, 255, 0.95) 40%, 
+        rgba(171, 252, 255, 0.91) 60%,
         rgba(85, 235, 255, 0.85)  80%,
         rgba(30,132,242,.8)
     );
@@ -41,7 +39,6 @@ html, body {
         0 0 76px rgba(30,132,242,0.71),
         0 0 140px rgba(30,132,242,.65);
 }
-
 
 @keyframes surge {
     0%   { transform: translate(0);          }
@@ -73,9 +70,7 @@ html, body {
     100% { transform: scale(.15)  translate(0);          }
 }
 
-
 /** 
-* ---------------------------
 *  "CORE" TEXT AND WRAPPER 
 * ---------------------------
 */
@@ -117,7 +112,6 @@ html, body {
     animation: neon 2s linear infinite alternate;
 }
 
-
 #subtitle {
     color: white;
     font-size: 14px;
@@ -128,15 +122,12 @@ html, body {
     animation: neon .6s ease-in-out infinite alternate;
 }
 
-
-
 @keyframes text-appears {
     0% {
         transform: scale(0) translate(-50%, -50%);
           transform-origin: 0% 0%;
           opacity: 1;
       }
-  
     100% {
         transform: scale(1)  translate(-50%, -50%);
          transform-origin: 0% 0%;
@@ -153,7 +144,6 @@ html, body {
             0 0 31px rgba(30,132,242,0.78),
             0 0 51px rgba(30,132,242,0.92);
     }
-  
     to {
         text-shadow:
             0 0 6px rgba(202,228,225,0.98),
@@ -204,7 +194,6 @@ html, body {
 }
 
 /** 
-* ---------------------------
 *         PARTICLES
 * ---------------------------
 */
@@ -216,9 +205,7 @@ html, body {
     position: absolute;
 } 
 
-
 /** 
-* ----------------------------
 *      CORE CONTAINER
 * ----------------------------
 */
@@ -234,8 +221,6 @@ html, body {
     display: flex;
 }
 
-/* This causes the brief screen flash upon the pulse wave explosion */
-
 @keyframes flash{
     0% { background-color: black }
     50% {
@@ -249,18 +234,8 @@ html, body {
 }
 
 /** 
-* ------------------------------------------
 *    THE CORES: CIRCLES, SLICES AND SLIVERS 
 * ------------------------------------------
-*/
-
-/**
-*  Each rotating circle is a "core". 
-*  The internal element area is empty/transparent.
-*  The visible part is a thickened border.
-*
-*  Many more styles are added by Javascript
-* ------------------------------------------------
 */
 
 .core {
@@ -273,29 +248,12 @@ html, body {
   border: solid;
 }
 
-/** 
-* ---------------------------------------------
-*  Cores have narrow "slices" - thin, overlaid
-*  divs - that create the notched appearance
-*  of the circles.
-*  
-*  Slices are styled by Javascript
-* ---------------------------------------------
-*/
-
-.slice {
-    position: absolute;
-}
-
+.slice { position: absolute; }
 
 /** 
-* -----------------------------------------------------
 *                 SLIVER ANIMATIONS
-*   The thin, protruding slivers from the core-center 
-*   are made and styled by Javascript.
 * -----------------------------------------------------
 */
-
 
 .long-sliver-fast {
     animation:
@@ -317,15 +275,6 @@ html, body {
       counter-clockwise 3s  ease-out 2.5s;
 }
 
-
-/** 
-* ------------------------------------------
-*  Box shadows are used by a few cores to 
-*  create the blue, glowing aesthetic
-* -----------------------------------------
-*/
-
-
 .box-shadow.one {
     transform: rotate(45deg);
     box-shadow:
@@ -343,7 +292,6 @@ html, body {
         0 0 80px rgba(30,132,242,0.3);
 }
 
-
 .box-shadow.three {
     transform: rotate(60deg);
     box-shadow:
@@ -352,9 +300,7 @@ html, body {
         0 0 80px rgba(30,132,242,0.5);
 }
 
-
 /** 
-* ------------------------------------------
 *  CORE ROTATION ANIMATIONS
 * -----------------------------------------
 */
@@ -371,9 +317,7 @@ html, body {
     to { animation: clockwise 300s linear infinite; }
 }
 
-
 /** 
-* -----------------
 *   BEGIN PROMPT
 * -----------------
 */
