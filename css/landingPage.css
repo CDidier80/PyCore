@@ -1,10 +1,10 @@
 html, body {
   background-color: black;
-  margin: 0;
-  padding: 0;
   font-family: babapro;
   text-align: center;
   min-height: 900px;
+  padding: 0;
+  margin: 0;
 }
 
 
@@ -15,23 +15,23 @@ html, body {
 */
 
 .glowing-orb {
-    z-index: 1001;
-    position: absolute;
-    top: calc(50% - 50px); 
-    left: calc(50% - 50px);
-    border-radius: 50%;
-    width: 100px;
-    height: 100px;
     animation: 
-      surge 0.05s linear infinite alternate,
-      supernova 2.5s ease 1.5s forwards;
+        surge 0.05s linear infinite alternate,
+        supernova 2.5s ease 1.5s forwards;
+    left: calc(50% - 50px);
+    top: calc(50% - 50px); 
+    position: absolute;
+    border-radius: 50%;
+    z-index: 1001;
+    height: 100px;
+    width: 100px;
     background: radial-gradient(
       ellipse, 
-        rgba(255,255,255, 1) 8%, 
+        rgba(255,255,255, 1)   8%, 
         rgba(255,255,255, .97) 15%, 
-        rgba(255,255,255,.95) 40%, 
-        rgba(255,255,255,.91) 60%,
-        rgba(255,255,255,.85) 80%,
+        rgba(203, 253, 255, 0.95)  40%, 
+        rgba(171, 252, 255, 0.91)  60%,
+        rgba(85, 235, 255, 0.85)  80%,
         rgba(30,132,242,.8)
     );
       box-shadow:
@@ -42,98 +42,35 @@ html, body {
         0 0 140px rgba(30,132,242,.65);
 }
 
+
 @keyframes surge {
-    0% {
-        transform: translate(0);
-    }
-    20% {
-        transform: translate(-1px, 1px);
-    }
-    40% {
-        transform: translate(-1px, -1px);
-    }
-    60% {
-        transform: translate(1px, 1px);
-    }
-    80% {
-        transform: translate(1px, -1px);
-    }
-    100% {
-        transform: translate(0);
-    }
+    0%   { transform: translate(0);          }
+    20%  { transform: translate(-1px, 1px);  }
+    40%  { transform: translate(-1px, -1px); }
+    60%  { transform: translate(1px, 1px);   }
+    80%  { transform: translate(1px, -1px);  }
+    100% { transform: translate(0);          }
 }
 
-
 @keyframes supernova {
-    0% {
-        transform: scale(1) translate(0);
-    }
-  
-    5% {
-        transform: scale(1.05) translate(-3px, 3px);
-    }
-  
-    10% {
-        transform: scale(1.1) translate(-3px, -3px);
-    }
-  
-    15% {
-        transform: scale(1.15) translate(3px, 3px);
-    }
-  
-    20% {
-        transform: scale(1.2) translate(3px, -3px);
-    }
-
-    25% {
-        transform: scale(1.25) translate(-3px, 3px);
-    }
-  
-    30% {
-        transform: scale(1.3) translate(-3px, -3px);
-    }
-  
-    35% {
-        transform: scale(1.35) translate(3px, 3px);
-    }
-
-    40% {
-        transform: scale(1.4) translate(3px, -3px);
-    }
-
-    45% {
-        transform: scale(1.45) translate(-3px, 3px);
-    }
-  
-    50% {
-        transform: scale(1.5) translate(-3px, -3px);
-    }
-  
-    55% {
-        transform: scale(1.55) translate(3px, 3px);
-    }
-
-    60% {
-        transform: scale(1.6) translate(3px, -3px);
-    }
-
-    65% {
-        transform: scale(1.65) translate(-1px, 1px);
-    }
-    70% {
-        transform: scale(1.7) translate(-1px, -1px);
-    }
-    75% {
-        transform: scale(1.75) translate(1px, 1px);
-    }
-
-    80% {
-        transform: scale(1.9) translate(0);
-    }
-
-    100% {
-        transform: scale(.15) translate(0);
-    }
+    0%   { transform: scale(1)    translate(0);          }
+    5%   { transform: scale(1.05) translate(-3px, 3px);  }
+    10%  { transform: scale(1.1)  translate(-3px, -3px); }
+    15%  { transform: scale(1.15) translate(3px, 3px);   }
+    20%  { transform: scale(1.2)  translate(3px, -3px);  }
+    25%  { transform: scale(1.25) translate(-3px, 3px);  }
+    30%  { transform: scale(1.3)  translate(-3px, -3px); }
+    35%  { transform: scale(1.35) translate(3px, 3px);   }
+    40%  { transform: scale(1.4)  translate(3px, -3px);  }
+    45%  { transform: scale(1.45) translate(-3px, 3px);  }
+    50%  { transform: scale(1.5)  translate(-3px, -3px); }
+    55%  { transform: scale(1.55) translate(3px, 3px);   }
+    60%  { transform: scale(1.6)  translate(3px, -3px);  }
+    65%  { transform: scale(1.65) translate(-1px, 1px);  }
+    70%  { transform: scale(1.7)  translate(-1px, -1px); }
+    75%  { transform: scale(1.75) translate(1px, 1px);   }
+    80%  { transform: scale(1.9)  translate(0);          }
+    100% { transform: scale(.15)  translate(0);          }
 }
 
 
@@ -144,29 +81,33 @@ html, body {
 */
 
 .text-flexbox {
-    z-index: 2000;
-    width: 247px;
-    height: 247px;
-    position: absolute;
-    top: 50%; left: 50%;
-    display: flex;
-    flex-direction: column;
     justify-content: center;
+    flex-direction: column;
+    top: 50%; left: 50%;
     align-items: center;
+    position: absolute;
     border-radius: 50%;
+    height: 247px;
+    z-index: 2000;
+    display: flex;
+    width: 247px;
     background: 
-      radial-gradient(ellipse, rgba(0,0,0,1)  40%, rgba(0,0,0,0));
+      radial-gradient(
+        ellipse, 
+        rgba(0,0,0,1) 40%, 
+        rgba(0,0,0,0)
+      );
 	  animation: 
       text-appears .3s cubic-bezier(0.250, 0.460, 0.450, 0.940) 4.5s both;
 }
 
 .core-text {
-    color: white;
     font-family: babapro;
-    font-size: 42px; 
     padding: 0 0 0 9px;
-    margin-bottom: 0;
     font-weight: bold;
+    margin-bottom: 0;
+    font-size: 42px; 
+    color: white;
     text-shadow:
         0 0 6px rgba(202,228,225,0.7),
         0 0 12px rgba(30,132,242,0.6),
@@ -178,32 +119,27 @@ html, body {
 
 
 #subtitle {
-  /* position: absolute;
-  top: 53%;
-  left: 50%;
-  transform: translate(-48%, -50%); */
-  margin-top: 10px;
-  /* padding: 0; */
-  text-align: center;
-  font-family: babapro;
-  font-size: 14px;
-  color: white;
-  animation: neon .6s ease-in-out infinite alternate;
-  z-index: 2000000;
+    color: white;
+    font-size: 14px;
+    margin-top: 10px;
+    z-index: 2000000;
+    text-align: center;
+    font-family: babapro;
+    animation: neon .6s ease-in-out infinite alternate;
 }
 
 
 
 @keyframes text-appears {
     0% {
+        transform: scale(0) translate(-50%, -50%);
           transform-origin: 0% 0%;
-          transform: scale(0) translate(-50%, -50%);
           opacity: 1;
       }
   
     100% {
+        transform: scale(1)  translate(-50%, -50%);
          transform-origin: 0% 0%;
-         transform: scale(1)  translate(-50%, -50%);
          opacity: 1;
     }
 }
@@ -236,11 +172,11 @@ html, body {
 */
 
 .pulse-wave {
-    z-index: 10000;
-    border-radius: 50%;
-    width: 247px;
-    height: 247px;
     animation: pulse-wave .55s ease-in 4.4s forwards;
+    border-radius: 50%;
+    z-index: 10000;
+    height: 247px;
+    width: 247px;
 }
 
 
@@ -252,14 +188,10 @@ html, body {
           rgba(30,132,242,.6) 90%, 
           rgba(255,255,255,0) 100%
         );
-      
         transform: scale(1);
     }
-  
     15% { backdrop-filter: blur(10px); }
-  
     55% { backdrop-filter: blur(0); }
-  
     100% {    
         background: radial-gradient(circle, 
           rgba(255,255,255,0) 60%, 
@@ -267,10 +199,22 @@ html, body {
           rgba(30,132,242,.3) 90%, 
           rgba(255,255,255,0) 100%
         ); 
-      
-      transform: scale(18); 
+        transform: scale(18); 
     }
 }
+
+/** 
+* ---------------------------
+*         PARTICLES
+* ---------------------------
+*/
+#projector {
+    top: 0px;
+    left: 0px;
+    width:100%;
+    height:100%;
+    position: absolute;
+} 
 
 
 /** 
@@ -280,34 +224,29 @@ html, body {
 */
 
 .container {
-    position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
-    background-color: black;
-    display: flex;
+    background-color: rgba(0,0,0,1);
+    animation: flash .15s linear 4.5s forwards;
     justify-content: center;
     align-items: center;
+    position: absolute;
     overflow: hidden;
-    animation: flash .15s linear 4.5s;
+    display: flex;
 }
 
 /* This causes the brief screen flash upon the pulse wave explosion */
 
 @keyframes flash{
-    0% {
-        background-color: black
-    }
-
+    0% { background-color: black }
     50% {
         background-color: white;
         backdrop-filter: blur(10px);
     }
-
     100% {
-        background-color: black;
+        background-color: rgba(0,0,0,0);
         backdrop-filter: blur(0);
     }
 }
-
 
 /** 
 * ------------------------------------------
@@ -315,8 +254,7 @@ html, body {
 * ------------------------------------------
 */
 
-/** 
-* ------------------------------------------------
+/**
 *  Each rotating circle is a "core". 
 *  The internal element area is empty/transparent.
 *  The visible part is a thickened border.
@@ -326,23 +264,23 @@ html, body {
 */
 
 .core {
+  justify-content: center;
+  box-sizing: border-box;
+  align-items: center;
   position: absolute;
   border-radius: 50%;
-  box-sizing: border-box;
   display: flex;
-  justify-content: center;
-  align-items: center;
   border: solid;
 }
 
 /** 
-* ------------------------------------------
+* ---------------------------------------------
 *  Cores have narrow "slices" - thin, overlaid
 *  divs - that create the notched appearance
 *  of the circles.
 *  
 *  Slices are styled by Javascript
-* ------------------------------------------
+* ---------------------------------------------
 */
 
 .slice {
@@ -351,11 +289,11 @@ html, body {
 
 
 /** 
-* --------------------------------------------------
-* SLIVER ANIMATIONS
-* The thin, protruding slivers from the core-center 
-* are made and styled by Javascript.
-* --------------------------------------------------
+* -----------------------------------------------------
+*                 SLIVER ANIMATIONS
+*   The thin, protruding slivers from the core-center 
+*   are made and styled by Javascript.
+* -----------------------------------------------------
 */
 
 
@@ -371,19 +309,19 @@ html, body {
 
 .short-sliver-fast {
     animation:
-      counter-clockwise 30s linear 0s,
-      counter-clockwise 14s linear .5s,
-      counter-clockwise 11s linear 1s,
-      counter-clockwise 9s linear 1.5s,
-      counter-clockwise 7s linear 2s,
-      counter-clockwise 3s ease-out 2.5s;
+      counter-clockwise 30s linear   0s,
+      counter-clockwise 14s linear   .5s,
+      counter-clockwise 11s linear   1s,
+      counter-clockwise 9s  linear   1.5s,
+      counter-clockwise 7s  linear   2s,
+      counter-clockwise 3s  ease-out 2.5s;
 }
 
 
 /** 
 * ------------------------------------------
-* Box shadows are used by a few cores to 
-* create the blue, glowing aesthetic
+*  Box shadows are used by a few cores to 
+*  create the blue, glowing aesthetic
 * -----------------------------------------
 */
 
@@ -422,35 +360,40 @@ html, body {
 */
 
 @keyframes counter-clockwise{
-    to{ transform: rotate(-360deg); }
+    to { transform: rotate(-360deg); }
 }
 
 @keyframes clockwise{
-    to{ transform: rotate(360deg); }
+    to { transform: rotate(360deg); }
 }
 
 @keyframes switch-to-infinite{
-    to{ animation: clockwise 300s linear infinite; }
+    to { animation: clockwise 300s linear infinite; }
 }
 
 
+/** 
+* -----------------
+*   BEGIN PROMPT
+* -----------------
+*/
 
 .begin-wrapper {
-  position: absolute;
-  left: 50%;
   transform: translate(-50%);
-  bottom: 15vh;
-  display: flex;
   justify-content: center;
   align-items: center;
+  position: absolute;
+  display: flex;
+  bottom: 15vh;
+  left: 50%;
 }
 
 #begin {
+  text-decoration: none;
+  position: relative;
   font-size: 28px;
   color: white;
-  text-decoration: none;
   display: block;
-  position: relative;
   left: .4vw;
   top: 5vh;
   text-shadow:
@@ -460,197 +403,40 @@ html, body {
     0 0 31px rgba(30, 242, 58,0.78),
     0 0 46px rgba(30, 242, 58,0.92);
   cursor: pointer;
-  -webkit-animation: flicker-in-1 2s linear 5s both;
-  animation: flicker-in-1 2s 5s linear both;
+  -webkit-animation: flicker 2s linear 5s both;
+  animation: flicker 2s 5s linear both;
 }
 
-@-webkit-keyframes flicker-in-1 {
-  0% {
-    opacity: 0;
-  }
-  10% {
-    opacity: 0;
-  }
-  10.1% {
-    opacity: 1;
-  }
-  10.2% {
-    opacity: 0;
-  }
-  20% {
-    opacity: 0;
-  }
-  20.1% {
-    opacity: 1;
-  }
-  20.6% {
-    opacity: 0;
-  }
-  30% {
-    opacity: 0;
-  }
-  30.1% {
-    opacity: 1;
-  }
-  30.5% {
-    opacity: 1;
-  }
-  30.6% {
-    opacity: 0;
-  }
-  45% {
-    opacity: 0;
-  }
-  45.1% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 1;
-  }
-  55% {
-    opacity: 1;
-  }
-  55.1% {
-    opacity: 0;
-  }
-  57% {
-    opacity: 0;
-  }
-  57.1% {
-    opacity: 1;
-  }
-  60% {
-    opacity: 1;
-  }
-  60.1% {
-    opacity: 0;
-  }
-  65% {
-    opacity: 0;
-  }
-  65.1% {
-    opacity: 1;
-  }
-  75% {
-    opacity: 1;
-  }
-  75.1% {
-    opacity: 0;
-  }
-  77% {
-    opacity: 0;
-  }
-  77.1% {
-    opacity: 1;
-  }
-  85% {
-    opacity: 1;
-  }
-  85.1% {
-    opacity: 0;
-  }
-  86% {
-    opacity: 0;
-  }
-  86.1% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-@keyframes flicker-in-1 {
-  0% {
-    opacity: 0;
-  }
-  10% {
-    opacity: 0;
-  }
-  10.1% {
-    opacity: 1;
-  }
-  10.2% {
-    opacity: 0;
-  }
-  20% {
-    opacity: 0;
-  }
-  20.1% {
-    opacity: 1;
-  }
-  20.6% {
-    opacity: 0;
-  }
-  30% {
-    opacity: 0;
-  }
-  30.1% {
-    opacity: 1;
-  }
-  30.5% {
-    opacity: 1;
-  }
-  30.6% {
-    opacity: 0;
-  }
-  45% {
-    opacity: 0;
-  }
-  45.1% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 1;
-  }
-  55% {
-    opacity: 1;
-  }
-  55.1% {
-    opacity: 0;
-  }
-  57% {
-    opacity: 0;
-  }
-  57.1% {
-    opacity: 1;
-  }
-  60% {
-    opacity: 1;
-  }
-  60.1% {
-    opacity: 0;
-  }
-  65% {
-    opacity: 0;
-  }
-  65.1% {
-    opacity: 1;
-  }
-  75% {
-    opacity: 1;
-  }
-  75.1% {
-    opacity: 0;
-  }
-  77% {
-    opacity: 0;
-  }
-  77.1% {
-    opacity: 1;
-  }
-  85% {
-    opacity: 1;
-  }
-  85.1% {
-    opacity: 0;
-  }
-  86% {
-    opacity: 0;
-  }
-  86.1% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 1;
-  }
+@keyframes flicker {
+  0%     { opacity: 0; }
+  10%    { opacity: 0; }
+  10.1%  { opacity: 1; }
+  10.2%  { opacity: 0; }
+  20%    { opacity: 0; }
+  20.1%  { opacity: 1; }
+  20.6%  { opacity: 0; }
+  30%    { opacity: 0; }
+  30.1%  { opacity: 1; }
+  30.5%  { opacity: 1; }
+  30.6%  { opacity: 0; }
+  45%    { opacity: 0; }
+  45.1%  { opacity: 1; }
+  50%    { opacity: 1; }
+  55%    { opacity: 1; }
+  55.1%  { opacity: 0; }
+  57%    { opacity: 0; }
+  57.1%  { opacity: 1; }
+  60%    { opacity: 1; }
+  60.1%  { opacity: 0; }
+  65%    { opacity: 0; }
+  65.1%  { opacity: 1; }
+  75%    { opacity: 1; }
+  75.1%  { opacity: 0; }
+  77%    { opacity: 0; }
+  77.1%  { opacity: 1; }
+  85%    { opacity: 1; }
+  85.1%  { opacity: 0; }
+  86%    { opacity: 0; }
+  86.1%  { opacity: 1; }
+  100%   { opacity: 1; }
 }
