@@ -1,3 +1,4 @@
+let mobile = window.innerWidth < 600 && window.innerHeight < 600
 
 let ParticleEngine = (function() {
 	'use strict'
@@ -38,7 +39,7 @@ let ParticleEngine = (function() {
             alphaMax: 0.4, 
             blur: false, 
           },
-          particleCount: 150, 
+          particleCount: mobile ? 20 : 150, 
           id: "small",  
         }, 
         { 
@@ -52,7 +53,7 @@ let ParticleEngine = (function() {
             alphaMax: 0.4, 
             blur: false, 
           },
-          particleCount: 70, 
+          particleCount: mobile ? 5 : 0, 
           id: "small",  
         }, 
 
@@ -68,7 +69,7 @@ let ParticleEngine = (function() {
             alphaMax: 0.3, 
             blur: true,  
           },
-          particleCount: 35, 
+          particleCount: mobile ? 0 : 35, 
           id: "medium", 
         }, 
 
@@ -84,7 +85,7 @@ let ParticleEngine = (function() {
             alphaMax: .1, 
             blur: true,  
           },
-          particleCount: 5,  
+          particleCount: mobile ? 0 : 5,  
           id: "large",  
         }
     ]
@@ -281,9 +282,8 @@ let ParticleEngine = (function() {
         this.firstbigBang = false
         this.render()
     }
-
-
  }
+
  return ParticleEngine
 }())
 
@@ -312,4 +312,6 @@ const activateParticles = () => {
     return particles
 }
 
-const particles = activateParticles()
+let particles = activateParticles()
+
+ParticleEngine = null

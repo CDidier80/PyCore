@@ -1,6 +1,5 @@
 const toPixels = (number) => `${number}px`
 
-
 let coresAwaitingDOM = []
 
 const createBlueCircle = (args) => {
@@ -89,7 +88,7 @@ const createCore = (args) => {
 }
 
 
-const cores = [
+let cores = [
   
    // thin, blue, long, protruding lines
    {      
@@ -301,6 +300,7 @@ const cores = [
 ]
 
 cores.forEach(core => createCore(core))
+cores = null
 
 // document.addEventListener('DOMContentLoaded', () => {
 //     const container = document.querySelector(".container")
