@@ -1,4 +1,4 @@
-let mobile = window.innerWidth < 600 && window.innerHeight < 600
+let mobile = window.innerWidth < 770 && window.innerHeight < 770
 
 let ParticleEngine = (function() {
 	'use strict'
