@@ -2,11 +2,10 @@ const submitButtonFlexItem = document.querySelector('.submit-button-flex-item')
 const submitCircle = document.querySelector("#submit-circle")
 const submitWord = document.querySelector("#submit-word")
 const winSound = document.querySelector(".winSound")
-const output = document.querySelector("#output")
 
 // async function simulateRequest() {
 //     await new Promise(resolve => setTimeout(resolve, 1000))
-//     return "simulated output"
+//     return "simulated terminal"
 // }
 
 let awaitingAPI = false
@@ -61,22 +60,30 @@ function setSubmissionStyles(bool) {
 
 
 async function submitCode() {
-    let modifiedShellResponse
-    let code = editor.getValue()
-    if (code === ""){
-        output.value = "error: no code to execute"
-        return
+
+    try {
+        let modifiedShellResponse
+        let code = editor.getValue()
+        if (code === ""){
+            terminal.value = "error: no code to execute"
+            return
+        }
+        setSubmissionStyles(true)
+        const [output, status] = await executeCode(code)
+        if (status === "timeout") {
+            setValueAndClear("PyCore Error: timeout of 5s exceeded")
+        } else {
+            const errorFound = errorCheck(output)
+            if (errorFound) modifiedShellResponse = changeJdoodleError(output)
+            setValueAndClear(modifiedShellResponse ? modifiedShellResponse : output)
+            winSound.play()
+        }
+        setSubmissionStyles(false)   
+    } catch (error) {
+        console.log(error)
+        setSubmissionStyles(false)   
     }
-    setSubmissionStyles(true)
-    const jdoodleOutput = await executeCode(code)
-    const errorFound = errorCheck(jdoodleOutput)
-    if (errorFound) modifiedShellResponse = changeErrorMessage(jdoodleOutput)
-
     // const response = await simulateRequest()
-    output.value = modifiedShellResponse ? modifiedShellResponse : jdoodleOutput
-    winSound.play()
-
-    setSubmissionStyles(false)   
 }
 
 submitButtonFlexItem.addEventListener('click', () => submitCode())
@@ -98,3 +105,6 @@ submitWord.addEventListener('click', () => submitCode())
 //         coreText.textContent = 'Core'
 //     }
 // })
+
+
+
