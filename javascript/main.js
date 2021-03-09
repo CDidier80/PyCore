@@ -75,12 +75,8 @@ async function submitCode() {
 
     // const response = await simulateRequest()
     output.value = modifiedShellResponse ? modifiedShellResponse : jdoodleOutput
-    if (jdoodleOutput.indexOf("Lisa Wand") !== -1) {
-        console.log("yeah")
-        surprise.play()
-    } else {
-        winSound.play()
-    }
+    winSound.play()
+
     setSubmissionStyles(false)   
 }
 
