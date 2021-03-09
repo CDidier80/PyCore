@@ -2,7 +2,7 @@
 
 ### *by Collin Didier* 
 
-![landing page view](https://i.ibb.co/T17YW9z/PyCore.gif)
+<!-- ![landing page view](https://i.ibb.co/T17YW9z/PyCore.gif) -->
 
 
 ##### [GitHub](https://github.com/CDidier80) | [LinkedIn](https://www.linkedin.com/in/collin-didier-a072a858/) 
