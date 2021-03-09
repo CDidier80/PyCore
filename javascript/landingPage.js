@@ -1,14 +1,7 @@
-const container = document.querySelector(".container")
-
 const toPixels = (number) => `${number}px`
 
-setTimeout(() => {
-  let pulseWave = document.querySelector("#pulse")
-  let glowingOrb = document.querySelector("#orb")
-  pulseWave.remove()
-  glowingOrb.remove()
-}, 7000);
 
+let coresAwaitingDOM = []
 
 const createBlueCircle = (args) => {
     
@@ -92,7 +85,7 @@ const createCore = (args) => {
     const core = createBlueCircle((args.forBlueCircle))
     const slices = makeSlices((args.forSlices))
     slices.forEach(slice => core.appendChild(slice))
-    container.appendChild(core)
+    coresAwaitingDOM.push(core)
 }
 
 
@@ -307,9 +300,21 @@ const cores = [
   
 ]
 
+cores.forEach(core => createCore(core))
 
-cores.forEach((core) => {
-  createCore(core)
-})
+// document.addEventListener('DOMContentLoaded', () => {
+//     const container = document.querySelector(".container")
+//     const pulseWave = document.querySelector("#pulse")
+//     const glowingOrb = document.querySelector("#orb")
 
+//     // pulseWave.addEventListener("animationstart", () => particles.bigBang())
+//     pulseWave.addEventListener("animationend",   () => pulseWave.remove())
+//     glowingOrb.addEventListener("animationend",  () => particles.bigBang(), () => glowingOrb.remove())
+    
+//     coresAwaitingDOM.forEach(core => {
+//         container.appendChild(core)
+//     })
+// })
+    
 
+// cores.forEach(core => createCore(core))
