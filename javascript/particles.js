@@ -1,7 +1,6 @@
 let mobile = window.innerWidth < 770 && window.innerHeight < 770
 let htmlUsingScript = (window.location.pathname).split("/").pop()
 
-console.log({htmlUsingScript})
 
 let ParticleEngine = (function() {
 	'use strict'
