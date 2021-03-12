@@ -62,12 +62,12 @@ main {
     flex-grow: 1;
     padding: 0;
     margin: 0;
-    /* box-shadow: 
+    box-shadow: 
         0 0 4px rgba(202,228,225,0.98),
         0 0 10px rgba(30,132,242,0.58),
         0 0 18px rgba(30,132,242,0.84),
         0 0 24px rgba(30,132,242,0.88),
-        0 0 28px rgba(30,132,242,1); */
+        0 0 28px rgba(30,132,242,1);
 }
 
 #ace-editor {
