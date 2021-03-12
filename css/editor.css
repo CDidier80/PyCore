@@ -52,41 +52,22 @@ main {
         0 0 40px rgba(30,132,242,1); */
 }
 
-#ace-editor {
-    /* height: 300px; */
-    /* border-bottom: 2px solid black; */
-    /* border-left: 1px solid black;
-    border-right: 1px solid black; */
-    /* font-family: "Menlo"; */
-    /* font-size: 14px;
-    flex-grow: 1; */
-}
-
 #terminal, #ace-editor {
-    resize: none;
-    /* height: 300px; */
-    font-size: 14px;
     /* font-family: "Menlo"; */
+    background: rgba(227, 248, 255, 0);
+    border-top: 1px solid black;
+    color: #99e2f8;
+    font-size: 14px;
+    resize: none;
+    flex-grow: 1;
     padding: 0;
     margin: 0;
-    border-top: 1px solid black;
-    /* border: solid rgb(2, 17, 99) 1px; */
-    background: rgb(227,248,255);
-    background: 
-        radial-gradient(
-            circle, 
-            rgba(227,248,255,1) 17%, 
-            rgb(161, 163, 216) 100%
-        );
-    flex-grow: 1;
-    background: rgba(227, 248, 255, 0);
-    color: #99e2f8;
-    box-shadow: 
+    /* box-shadow: 
         0 0 4px rgba(202,228,225,0.98),
         0 0 10px rgba(30,132,242,0.58),
         0 0 18px rgba(30,132,242,0.84),
         0 0 24px rgba(30,132,242,0.88),
-        0 0 28px rgba(30,132,242,1);
+        0 0 28px rgba(30,132,242,1); */
 }
 
 #ace-editor {
