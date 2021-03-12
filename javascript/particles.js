@@ -1,28 +1,27 @@
 let mobile = window.innerWidth < 770 && window.innerHeight < 770
+let htmlUsingScript = (window.location.pathname).split("/").pop()
+
+console.log({htmlUsingScript})
 
 let ParticleEngine = (function() {
 	'use strict'
 
-	function ParticleEngine(canvas_id) {
+	function ParticleEngine(canvas_id, useBigBang = true) {
 		// enforces new
 		if (!(this instanceof ParticleEngine)) return new ParticleEngine(args)
 		
     this.canvas = document.createElement('canvas')
     this.canvas.id = canvas_id
 		this.stage  = new createjs.Stage(this.canvas)
-    // this.canvas = document.getElementById(canvas_id)
     this.canvas.width = window.innerWidth
     this.canvas.height = window.innerHeight
 		this.totalWidth  = this.canvasWidth  = this.canvas.width  = this.canvas.width
 		this.totalHeight = this.canvasHeight = this.canvas.height = this.canvas.height
-		// this.totalWidth  = this.canvasWidth  = this.canvas.width  = this.canvas.offsetWidth
-		// this.totalHeight = this.canvasHeight = this.canvas.height = this.canvas.offsetHeight
     this.xCenterPoint = this.totalWidth / 2,
     this.yCenterPoint = this.totalHeight / 2, 
     this.firstbigBang = true
-    // this.circleWaypoints = 360
-    // this.radianIncrement = Math.PI * 2 / this.circleWaypoints
-    // this.incrementInRadians = this.angleIncrement * Math.PI / 180
+    this.useBigBang = useBigBang
+
 
     this.particleArray = []  
     
@@ -57,7 +56,7 @@ let ParticleEngine = (function() {
           id: "small",  
         }, 
 
-        // /* several medium, blured particles */
+        /* several medium, blured particles */
         { 
           forParticleInstance: {
             particleColor: "#0cdbf3",
@@ -73,7 +72,7 @@ let ParticleEngine = (function() {
           id: "medium", 
         }, 
 
-        // /* a few large, blured particles */
+        /* a few large, blured particles */
         { 
           forParticleInstance: {
             particleColor: "#93e9f3",
@@ -90,6 +89,7 @@ let ParticleEngine = (function() {
         }
     ]
 
+
 		this.makeParticles = function() {
         this.particleTypes.forEach(particleType => {
             const {                
@@ -102,7 +102,6 @@ let ParticleEngine = (function() {
               this.addStaticProperties(particle, forParticleInstance, id)
               this.addRandomizedProperties(particle)
               this.precalculateDestinations(particle)
-              // this.plotCircularPath(particle)
               this.drawParticle(particle)
               this.stage.addChild(particle)
               this.particleArray.push(particle)
@@ -110,178 +109,155 @@ let ParticleEngine = (function() {
         })	
 		 }
 
-        this.addStaticProperties = function(particle, forParticleInstance, id) {
-            particle.flag = id
-            particle.x = this.totalWidth / 2
-            particle.y = this.totalHeight / 2
-            for (let key in forParticleInstance) {
-                particle[key] = forParticleInstance[key]
-            }
+
+    this.addStaticProperties = function(particle, forParticleInstance, id) {
+        particle.flag = id
+        this.setInitialPosition(particle)
+        for (let key in forParticleInstance) {
+            particle[key] = forParticleInstance[key]
         }
-
-
-        this.addRandomizedProperties = function(particle) {
-            particle.scaleX = particle.scaleY = randomizeWithinRange(0.3, 1)
-            particle.alpha = randomizeWithinRange(0, 0.1)
-            particle.speed = randomizeWithinRange(4, 10)
-            particle.bigBangSpeed = randomizeWithinRange(1, 4.5)
-            particle.xExplosionDestination = randomizeWithinRange(0, this.totalWidth)
-            particle.yExplosionDestination = randomizeWithinRange(0, this.totalHeight)
-            particle.endScale = randomizeWithinRange(0.3, 1)
-            // particle.clockwiseOrbit = Math.random() < .8 ? true : false
-        }
-
-
-        this.precalculateDestinations = function(particle){
-            const { xExplosionDestination: x, yExplosionDestination: y, travelDistance} = particle
-            const firstX = randomizeWithinRange(x - travelDistance, x + travelDistance)
-            const firstY = randomizeWithinRange(y - travelDistance, y + travelDistance)
-            let destinations = [[firstX, firstY]]
-            for (let i=1; i<=15; i++){
-                const prevX = destinations[i-1][0]
-                const prevY = destinations[i-1][1]
-                const [nextX, nextY] = makeRandomCoordinates(prevX, prevY, travelDistance)
-                destinations.push([nextX, nextY])
-            }
-            particle.destinations = destinations.concat([...destinations].reverse())
-            particle.moveCount = 0
-        }
-
-
-        // this.plotCircularPath = function(particle){
-        //     const { xExplosionDestination: x, yExplosionDestination: y, clockwiseOrbit} = particle
-        //     let xFromCenter = (x - this.xCenterPoint )
-        //     let yFromCenter = (y - this.yCenterPoint )
-        //     const radius = Math.hypot(yFromCenter, xFromCenter)
-        //     const angle  = Math.atan2(yFromCenter, xFromCenter)
-            
-        //     let [nextX, nextY] = this.findNextCircleCoordinates(radius, angle)
-        //     let circleDestinations = []
-        //     for (let i = 1; i <= this.circleWaypoints; i++) {
-        //         [nextX, nextY] = this.findNextCircleCoordinates(radius, angle + (this.radianIncrement * i * (clockwiseOrbit ? 1 : -1)))
-        //         circleDestinations.push([nextX, nextY])
-        //     }
-        //     particle.circleDestinations = circleDestinations
-        //     particle.orbitalSpeed = .0000002 * radius * radius
-        // }
-
-
-        this.findNextCircleCoordinates = function(radius, angle){
-            const nextX = Math.cos(angle) * radius + this.xCenterPoint
-            const nextY = Math.sin(angle) * radius + this.yCenterPoint
-            return [nextX, nextY]
-        }
-
-
-        this.drawParticle = function(particle) {
-            const { blur, particleColor, particleWidth } = particle
-            particle.graphics.beginFill(particleColor).drawCircle(0, 0, particleWidth)
-            blur ? this.drawBlurredParticle(particle) : this.drawClearParticle(particle)
-        }
-
-
-        this.drawBlurredParticle = function(particle) {
-            const { particleWidth, particleColor} = particle
-            let blurFilter = new createjs.BlurFilter(particleWidth / 2, particleWidth / 2, 1)
-            particle.filters = [blurFilter]
-            let bounds = blurFilter.getBounds()
-            particle.graphics.beginStroke(particleColor).setStrokeStyle(1).drawCircle(0, 0, particleWidth);
-            particle.cache(-50+bounds.x, -50+bounds.y, 100+bounds.width, 100+bounds.height)
-        }
-
-
-        this.drawClearParticle = function(particle) {
-            const { particleWidth, particleColor } = particle
-            particle.graphics.beginStroke(particleColor).setStrokeStyle(1).drawCircle(0, 0, particleWidth);
-        }
-
-
-    const scatterParticle = function(particle) {
-        const { 
-          endScale,
-          alphaMax,
-          bigBangSpeed, 
-          yExplosionDestination, 
-          xExplosionDestination, 
-        } = particle
-
-        const endExplosionState = { 
-          scaleX: endScale, 
-          scaleY: endScale, 
-          x: xExplosionDestination, 
-          y: yExplosionDestination, 
-          ease: Cubic.easeInOut,
-          onComplete: animateParticle, 
-          onCompleteParams:[particle], 
-          // onComplete: enterOrbit, 
-          // onCompleteParams:[particle], 
-          alpha: alphaMax, 
-        }
-        TweenMax.to(particle, bigBangSpeed, {...endExplosionState})
     }
 
 
-    // const enterOrbit = function(particle) {
-    //     const {circleDestinations, orbitalSpeed} = particle
-    //     let orbitalTimeline = gsap.timeline({repeat: -1, smoothChildTiming: true, ease: Power4.easeInOut})
-    //     for (let i=0; i<circleDestinations.length; i++){
-    //         orbitalTimeline.to(particle, orbitalSpeed * (1 + (i/circleDestinations.length)), {x: circleDestinations[i][0] , y: circleDestinations[i][1]})
-    //     }
-    // }
-
-
-		const animateParticle = function(particle) {
-        const { speed, alphaMax, destinations, moveCount } = particle
-        let endScale = randomizeWithinRange(0.3, 1);
-        const greaterAlpha = randomizeWithinRange(0.1, alphaMax)
-        const shouldCountReset = moveCount === destinations.length - 1
-
-        const endState = { 
-          moveCount: shouldCountReset ? 0 : moveCount + 1,
-          y: destinations[moveCount][1], 
-          x: destinations[moveCount][0], 
-          onComplete: animateParticle, 
-          onCompleteParams:[particle], 
-          ease: Cubic.easeInOut,
-          alpha: greaterAlpha, 
-          scaleX: endScale, 
-          scaleY: endScale, 
+    this.setInitialPosition = function(particle){
+        if (this.useBigBang) {
+          particle.x = this.totalWidth / 2
+          particle.y = this.totalHeight / 2
+        } else {
+          particle.x = randomizeWithinRange(0, this.totalWidth)
+          particle.y = randomizeWithinRange(0, this.totalHeight)
         }
-        TweenMax.to(particle, speed, {...endState})	
-		}
+    }
+
+
+    this.addRandomizedProperties = function(particle) {
+      particle.scaleX = particle.scaleY = randomizeWithinRange(0.3, 1)
+      particle.endScale = randomizeWithinRange(0.3, 1)
+      particle.alpha = randomizeWithinRange(0, 0.1)
+      particle.speed = randomizeWithinRange(4, 10)
+      /* big bang randomization */
+      particle.xExplosionDestination = randomizeWithinRange(0, this.totalWidth)
+      particle.yExplosionDestination = randomizeWithinRange(0, this.totalHeight)
+      particle.bigBangSpeed = randomizeWithinRange(1, 4.5)
+    }
+
+
+      this.precalculateDestinations = function(particle){
+          const { xExplosionDestination: x, yExplosionDestination: y, travelDistance} = particle
+          const firstX = randomizeWithinRange(x - travelDistance, x + travelDistance)
+          const firstY = randomizeWithinRange(y - travelDistance, y + travelDistance)
+          let destinations = [[firstX, firstY]]
+          for (let i=1; i<=15; i++){
+              const prevX = destinations[i-1][0]
+              const prevY = destinations[i-1][1]
+              const [nextX, nextY] = makeRandomCoordinates(prevX, prevY, travelDistance)
+              destinations.push([nextX, nextY])
+          }
+          particle.destinations = destinations.concat([...destinations].reverse())
+          particle.moveCount = 0
+      }
+
+
+      this.findNextCircleCoordinates = function(radius, angle){
+          const nextX = Math.cos(angle) * radius + this.xCenterPoint
+          const nextY = Math.sin(angle) * radius + this.yCenterPoint
+          return [nextX, nextY]
+      }
+
+
+      this.drawParticle = function(particle) {
+          const { blur, particleColor, particleWidth } = particle
+          particle.graphics.beginFill(particleColor).drawCircle(0, 0, particleWidth)
+          blur ? this.drawBlurredParticle(particle) : this.drawClearParticle(particle)
+      }
+
+
+      this.drawBlurredParticle = function(particle) {
+          const { particleWidth, particleColor} = particle
+          let blurFilter = new createjs.BlurFilter(particleWidth / 2, particleWidth / 2, 1)
+          particle.filters = [blurFilter]
+          let bounds = blurFilter.getBounds()
+          particle.graphics.beginStroke(particleColor).setStrokeStyle(1).drawCircle(0, 0, particleWidth);
+          particle.cache(-50+bounds.x, -50+bounds.y, 100+bounds.width, 100+bounds.height)
+      }
+
+
+      this.drawClearParticle = function(particle) {
+          const { particleWidth, particleColor } = particle
+          particle.graphics.beginStroke(particleColor).setStrokeStyle(1).drawCircle(0, 0, particleWidth);
+      }
+
+
+      const scatterParticle = function(particle) {
+          const { 
+            xExplosionDestination, 
+            yExplosionDestination, 
+            bigBangSpeed, 
+            endScale,
+            alphaMax,
+          } = particle
+
+          const endExplosionState = { 
+            alpha: alphaMax, 
+            scaleY: endScale, 
+            scaleX: endScale, 
+            ease: Cubic.easeInOut,
+            x: xExplosionDestination, 
+            y: yExplosionDestination, 
+            onCompleteParams:[particle], 
+            onComplete: animateParticle, 
+          }
+          TweenMax.to(particle, bigBangSpeed, {...endExplosionState})
+      }
+
+
+      const animateParticle = function(particle) {
+          const { speed, alphaMax, destinations, moveCount } = particle
+          let endScale = randomizeWithinRange(0.3, 1);
+          const greaterAlpha = randomizeWithinRange(0.1, alphaMax)
+          const shouldCountReset = moveCount === destinations.length - 1
+
+          const endState = { 
+            moveCount: shouldCountReset ? 0 : moveCount + 1,
+            y: destinations[moveCount][1], 
+            x: destinations[moveCount][0], 
+            onComplete: animateParticle, 
+            onCompleteParams:[particle], 
+            ease: Cubic.easeInOut,
+            alpha: greaterAlpha, 
+            scaleX: endScale, 
+            scaleY: endScale, 
+          }
+          TweenMax.to(particle, speed, {...endState})	
+      }
 	
 
-    this.bigBang = function(){
-      this.particleArray.forEach(particle => scatterParticle(particle))
-    }
+      this.bigBang = function(){
+        this.particleArray.forEach(particle => scatterParticle(particle))
+      }
 
-		// function fadeout(particle, speed) {
-		// 	particle.speed = randomizeWithinRange(2, 10)
-    //   const endState = {
-    //     alpha: 0,
-    //     onComplete: animateParticle, 
-    //     onCompleteParams:[particle], 
-    //   }
-		// 	TweenMax.to(particle, speed / 2, endState)
-		// }
+      // a big bang alternative - skip explosion and immediately assume first position
+      // after minor scatter
+      this.takeFirstPosition = function() {
+        this.particleArray.forEach(particle => animateParticle(particle))
+      }
 
 
-    this.render = function() {
-       this.stage.update()
-    } 
+      this.render = function() {
+        this.stage.update()
+      } 
 
-    this.resize = function() {
-        this.totalWidth  = this.canvasWidth  = this.canvas.width = window.innerWidth
-        this.totalHeight = this.canvasHeight = this.canvas.height = window.innerHeight
-        this.render()
-        // this.particleArray.forEach(particle => this.setInitialParticlePosition(particle))
-    }
+      this.resize = function() {
+          this.totalWidth  = this.canvasWidth  = this.canvas.width = window.innerWidth
+          this.totalHeight = this.canvasHeight = this.canvas.height = window.innerHeight
+          this.render()
+      }
 
-		this.makeParticles()
-    if(this.firstbigBang){
-        this.firstbigBang = false
-        this.render()
-    }
+      this.makeParticles()
+      if(this.firstbigBang){
+          this.firstbigBang = false
+          this.render()
+      }
  }
 
  return ParticleEngine
@@ -303,8 +279,9 @@ const toDegrees = (radians) => radians * (180 / Math.PI)
 const setZeroIfFalsey = (variable) => !variable && (variable = 0)
 
 
-const activateParticles = () => {
-    const particles = new ParticleEngine('projector')
+const activateParticles = (htmlUsingScript) => {
+    const noBigBang = htmlUsingScript === "editor.html"
+    const particles = new ParticleEngine('projector', !noBigBang)
     createjs.Ticker.addEventListener("tick", updateCanvas)
     window.addEventListener('resize', resizeCanvas)
     function updateCanvas(){particles.render()}
@@ -312,6 +289,6 @@ const activateParticles = () => {
     return particles
 }
 
-let particles = activateParticles()
+let particles = activateParticles(htmlUsingScript)
 
 ParticleEngine = null
