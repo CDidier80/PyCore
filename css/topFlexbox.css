@@ -11,7 +11,9 @@
  */
 
 .options-button-flex-item {
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: relative;
   align-self: flex-end;
   -webkit-animation: roll-in-blurred-left 1.2s cubic-bezier(0.23, 1, 0.32, 1)
@@ -20,7 +22,9 @@
 }
 
 .title-wrapper-flex-item {
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: relative;
   margin: 0 20px 0 20px;
   transition: all 0.7s;
@@ -30,7 +34,9 @@
 }
 
 .submit-button-flex-item {
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: relative;
   align-self: flex-end;
   transition: all 0.7s;
@@ -102,21 +108,18 @@
  */
 
 .top-flex-text {
-  top: 50%;
-  left: 50%;
-  margin: 0;
   cursor: pointer;
   transition: all 0.2s;
   position: absolute;
-  transform: translate(-50%, -50%);
 }
 
 .pycore-header {
-  font-size: 25px;
+  font-size: 28px;
+  padding-left: 7px;
 }
 
 #submit-word {
-  font-size: 13px;
+  font-size: 14px;
   padding-left: 4px;
 }
 
@@ -139,29 +142,19 @@
     scrollbar-width: none; /* Firefox */
   }
   .top-flex-text {
-    top: 50%;
-    left: 52%;
+    /* top: 50%;
+    left: 52%; */
     margin: 0;
     cursor: pointer;
     transition: all 0.2s;
     position: absolute;
-    transform: translate(-50%, -50%);
+    /* transform: translate(-50%, -50%); */
   }
 
   .pycore-header {
-    font-size: 18px;
-  }
-  #submit-word {
-    font-size: 11px;
-    padding-left: 4px;
-    left: 50%;
+    font-size: 25px;
   }
 
-  #options {
-    font-size: 10px;
-    padding-left: 5px;
-    left: 50%;
-  }
 
   .editor-top-flexbox {
     margin: 20px 0 10px 0;
@@ -178,20 +171,196 @@
   }
 }
 
+
+/* decreasing core text sizes */
+
+
+@media (max-width: 650px) { 
+  .pycore-header {
+    font-size: 26px;
+    padding-left: 6px;
+  }
+  #submit-word {
+    font-size: 16px;
+    padding-left: 5px;
+  }
+  #options {
+    font-size: 13px;
+    padding-left: 3px;
+  }
+}
+
+@media (max-width: 610px) {
+  .pycore-header {
+    font-size: 24px;
+  }
+  #submit-word {
+    padding-left: 4px;
+  }
+  #options {
+    font-size: 12px;
+    padding-left: 4px;
+  }
+ }
+
+@media (max-width: 590px) {
+  #submit-word {
+    font-size: 15px;
+  }
+ }
+@media (max-width: 575px) {
+  #submit-word {
+    font-size: 14px;
+  }
+  #options {
+    font-size: 12px;
+    padding-left: 5px;
+  }
+ }
+
+ @media (max-width: 565px) {
+  #options {
+    font-size: 11px;
+    padding-left: 5px;
+  }
+ }
+
+
+@media (max-width: 550px) {
+  .pycore-header {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 515px) {
+  .pycore-header {
+    font-size: 20px;
+    padding-left: 4px;
+  }
+  #submit-word {
+    font-size: 13px;
+  }
+  #options {
+    font-size: 10px;
+    padding-left: 3px;
+  }
+}
+
+@media (max-width: 480px) {
+  #submit-word {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 470px) {
+  .pycore-header {
+    font-size: 19px;
+    padding-left: 5px;
+  }
+}
+
+@media (max-width: 450px) {
+  .pycore-header {
+    font-size: 18px;
+  }
+  #submit-word {
+    font-size: 11px;
+  }
+  #options {
+    font-size: 9px;
+    padding-left: 4px;
+  }
+}
+
+@media (max-width: 437px) {
+  .pycore-header {
+    font-size: 17px;
+    padding-left: 4px;
+  }
+  #options {
+    font-size: 9px;
+    padding-left: 3px;
+  }
+}
+
 @media (max-width: 400px) {
+  .pycore-header {
+    font-size: 16px;
+  }
+  #submit-word {
+    font-size: 10px;
+    padding-left: 4px;
+  }
+  #options {
+    font-size: 8px;
+    padding-left: 3px;
+  }
+}
+
+@media (max-width: 380px) {
   .pycore-header {
     font-size: 15px;
   }
   #submit-word {
     font-size: 9px;
     padding-left: 4px;
-    left: 50%;
   }
-
   #options {
     font-size: 8px;
-    padding-left: 5px;
-    left: 50%;
+    padding-left: 3px;
+  }
+}
+
+@media (max-width: 360px) {
+  .pycore-header {
+    font-size: 14px;
+  }
+  #options {
+    font-size: 8px;
+    padding-left: 3px;
+  }
+}
+
+@media (max-width: 347px) {
+  #options {
+    font-size: 7px;
+    padding-left: 2px;
+  }
+  .title-wrapper-flex-item {
+    margin: 0 12px 0 12px;
+  }
+}
+
+@media (max-width: 330px) {
+  .pycore-header {
+    font-size: 13px;
+    padding-left: 3px;
+
+  }
+  #options {
+    font-size: 7px;
+    padding-left: 4px;
+  }
+
+  #submit-word {
+    font-size: 8px;
+    padding-left: 2px;
+  }
+}
+
+@media (max-width: 290px) {
+  .pycore-header {
+    font-size: 12px;
+    padding-left: 2px;
+  }
+  #options {
+    font-size: 6px;
+    padding-left: 3px;
+  }
+
+  #submit-word {
+    font-size: 7px;
+    padding-left: 3px;
   }
 }
 
