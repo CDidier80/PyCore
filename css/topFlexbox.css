@@ -12,10 +12,10 @@
 
 .options-button-flex-item {
   display: flex;
-  justify-content: center;
-  align-items: center;
   position: relative;
+  align-items: center;
   align-self: flex-end;
+  justify-content: center;
   -webkit-animation: roll-in-blurred-left 1.2s cubic-bezier(0.23, 1, 0.32, 1)
     both;
   animation: roll-in-blurred-left 1.2s cubic-bezier(0.23, 1, 0.32, 1) both;
@@ -23,11 +23,11 @@
 
 .title-wrapper-flex-item {
   display: flex;
-  justify-content: center;
-  align-items: center;
   position: relative;
-  margin: 0 20px 0 20px;
+  align-items: center;
   transition: all 0.7s;
+  margin: 0 20px 0 20px;
+  justify-content: center;
   -webkit-animation: roll-in-blurred-top 1.2s cubic-bezier(0.23, 1, 0.32, 1)
     both;
   animation: roll-in-blurred-top 1.2s cubic-bezier(0.23, 1, 0.32, 1) both;
@@ -35,17 +35,19 @@
 
 .submit-button-flex-item {
   display: flex;
-  justify-content: center;
-  align-items: center;
   position: relative;
+  align-items: center;
   align-self: flex-end;
   transition: all 0.7s;
+  justify-content: center;
   -webkit-animation: roll-in-blurred-right 1.2s cubic-bezier(0.23, 1, 0.32, 1)
     both;
   animation: roll-in-blurred-right 1.2s cubic-bezier(0.23, 1, 0.32, 1) both;
   text-shadow: 0 0 6px rgba(202, 228, 225, 0.98),
-    0 0 12px rgba(30, 132, 242, 0.58), 0 0 22px rgba(30, 132, 242, 0.84),
-    0 0 38px rgba(30, 132, 242, 0.88), 0 0 60px rgba(30, 132, 242, 1);
+    0 0 12px rgba(30, 132, 242, 0.58), 
+    0 0 22px rgba(30, 132, 242, 0.84),
+    0 0 38px rgba(30, 132, 242, 0.88), 
+    0 0 60px rgba(30, 132, 242, 1);
 }
 
 /**
@@ -155,7 +157,6 @@
     font-size: 25px;
   }
 
-
   .editor-top-flexbox {
     margin: 20px 0 10px 0;
   }
@@ -173,7 +174,6 @@
 
 
 /* decreasing core text sizes */
-
 
 @media (max-width: 650px) { 
   .pycore-header {

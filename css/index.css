@@ -3,33 +3,32 @@
   padding: 0;
 }
 
-*::-webkit-scrollbar {
-  width: 12px;
-}
+*::-webkit-scrollbar { width: 12px; }
 
-*::-webkit-scrollbar-track {
-  background: black;
-}
+*::-webkit-scrollbar-track { background: black; }
 
 *::-webkit-scrollbar-thumb {
   background-color: white;
   border-radius: 20px;
   border: 3px solid rgb(30, 132, 242);
-  box-shadow: 0 0 3px rgba(255, 255, 255, 0.98),
-    0 0 11px rgba(30, 132, 242, 0.52), 0 0 19px rgba(30, 132, 242, 0.92),
+  box-shadow: 
+    0 0 3px rgba(255, 255, 255, 0.98),
+    0 0 11px rgba(30, 132, 242, 0.52), 
+    0 0 19px rgba(30, 132, 242, 0.92),
     0 0 31px rgba(30, 132, 242, 0.78);
 }
+
 html,
 body {
-  min-width: 100vw;
   margin: 0;
   padding: 0;
-  overflow-x: hidden;
-  /* background-color: black; */
-  font-family: babapro;
-  text-align: center;
   color: white;
+  min-width: 100vw;
+  overflow-x: hidden;
+  text-align: center;
+  font-family: babapro;
   background-attachment: fixed;
+  /* background-color: black; */
 }
 
 body {
@@ -47,7 +46,9 @@ body {
 .yellow-text {
   color: rgb(255, 255, 255);
   text-shadow: 0 0 5px rgba(228, 228, 202, 0.98),
-    0 0 10px rgba(238, 255, 0, 0.58), 0 0 17px rgba(238, 255, 0, 0.84),
-    0 0 33px rgba(238, 255, 0, 0.88), 0 0 50px rgba(238, 255, 0, 1);
+    0 0 10px rgba(238, 255, 0, 0.58), 
+    0 0 17px rgba(238, 255, 0, 0.84),
+    0 0 33px rgba(238, 255, 0, 0.88), 
+    0 0 50px rgba(238, 255, 0, 1);
   transition: all 0.4s;
 }
